@@ -109,7 +109,7 @@ test('editing one field keeps unknown keys and types', () => {
   assert.strictEqual(out.education[0].gpa, '3.9');
   assert.strictEqual(out.work.length, 1);
   assert.strictEqual(out.work[0].company, 'Bluenose Outfitters');
-  assert.strictEqual(out.savedAnswers.length, 3);
+  assert.strictEqual(out.savedAnswers.length, example.savedAnswers.length + 1);
   ['_comment', 'projects', 'writingStyle', 'extraRules', 'automationLevel', 'bulletFormula', 'coverLetterPolicy', 'letterStyle', 'combinedOrder']
     .forEach((k) => assert.deepStrictEqual(out[k], example[k], k + ' changed'));
   assert.strictEqual(out.resumeMaxPages, 2);
@@ -214,7 +214,10 @@ const CASES = [
   ['Have you ever worked for us before?', 'radio', 'left:not in profile'],
   ['Have you previously applied to Northwind?', 'radio', 'left:unknown question'],
   ['Preferred work arrangement', 'select', 'work arrangement'],
-  ['Preferred start date', 'text', 'start date']
+  ['Preferred start date', 'text', 'start date'],
+  ["Do you have a valid driver's licence?", 'radio', 'left:unknown question'],
+  ["Driver's licence number", 'text', 'left:sensitive'],
+  ['Do you have relatives who are government officials?', 'radio', 'government relative']
 ];
 CASES.forEach(([text, control, want, extra]) => {
   const d = R.decide(q(text, control, extra), profile, {});

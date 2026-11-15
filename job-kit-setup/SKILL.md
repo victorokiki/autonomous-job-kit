@@ -100,7 +100,8 @@ message only what the CV can't answer (profile.md "What to ask"), plus:
   cover letters always or only when required (`coverLetterPolicy`), letter layout (`letterStyle`), merged
   letter+resume PDF (`alwaysCombine`, `combinedOrder`).
 - Self-identification is optional; every field may stay empty or "decline". Never infer it.
-- A few `savedAnswers` they're asked often (how they heard about the job, notice period, salary expectation).
+- The common screening questions, asked once in two or three short rounds (multiple choice where possible) and saved so
+  they never need re-answering. Use the checklist in profile.md, "Common screening questions".
 
 Tell them `savedAnswers` grows as they apply: when they answer a new repeat question, Claude saves it.
 

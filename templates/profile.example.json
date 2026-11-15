@@ -89,8 +89,54 @@
   "transgender": "",
   "sexualOrientation": "",
   "savedAnswers": [
-    { "match": "how did you hear", "answer": "Company careers page" },
-    { "match": "notice period", "answer": "Two weeks" }
+    {
+      "match": "how did you hear",
+      "answer": "Company careers page"
+    },
+    {
+      "match": "notice period",
+      "answer": "Two weeks"
+    },
+    {
+      "match": "commute",
+      "answer": "Yes"
+    },
+    {
+      "match": "relocation assistance",
+      "answer": "No"
+    },
+    {
+      "match": "currently employed",
+      "answer": "No"
+    },
+    {
+      "match": "background check",
+      "answer": "Yes"
+    },
+    {
+      "match": "failed a background check",
+      "answer": "No"
+    },
+    {
+      "match": "reference check",
+      "answer": "Yes"
+    },
+    {
+      "match": "know anyone",
+      "answer": "No"
+    },
+    {
+      "match": "18 years of age",
+      "answer": "Yes"
+    },
+    {
+      "match": "require any accommodations",
+      "answer": "No"
+    },
+    {
+      "match": "non disclosure",
+      "answer": "Yes"
+    }
   ],
   "writingStyle": "Plain and direct, short sentences, no buzzwords.",
   "extraRules": "Use Canadian spelling.\nNever say \"passionate\" or \"team player\".",
@@ -101,5 +147,8 @@
   "letterStyle": "carlito",
   "letterMaxWords": 250,
   "alwaysCombine": true,
-  "combinedOrder": "letter-first"
+  "combinedOrder": "letter-first",
+  "employmentType": "Full-time",
+  "certifications": "WHMIS, Standard First Aid with CPR",
+  "securityClearance": "None (willing to obtain)"
 }

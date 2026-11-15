@@ -33,7 +33,7 @@
     'birthday', '\\bhow old\\b', '\\bbank', 'routing', 'account (number|no)', '\\biban\\b', '\\bswift\\b', 'sort code',
     'credit card', 'card number', 'passport', 'religio', 'marital', '\\bmarried\\b', 'criminal', 'convicted', 'conviction',
     'felony', 'misdemeanou?r', '\\barrest', 'offen[cs]e', 'background check', 'licen[cs]e (number|no)', 'maiden name',
-    'password', 'signature', 'e sign', 'sign here', '\\binitials\\b', 'driver s licen', 'health card', 'medical'
+    'password', 'signature', 'e sign', 'sign here', '\\binitials\\b', 'driver s licen[cs]e (number|no|class number)', 'health card', 'medical'
   ].join('|'));
 
   /* Agreement-style questions: never ticked or answered by the extension. */
@@ -262,7 +262,7 @@
     { id: 'located in country', re: /^(are|do) you (currently |presently |now )?(located|based|living|live|reside|residing)\b/, not: /\breloca\w*|\bwilling\b/,
       get: locatedIn },
     { id: 'relocation', re: /\breloca\w*\b/, get: function (p) { return yesno(p.willingToRelocate); } },
-    { id: 'government relative', re: /\b(relative|family|related|household|immediate family)\b.*\b(government|public (official|servant|sector|office)|official)\b|\b(government|public official)\b.*\b(relative|family|related)\b/,
+    { id: 'government relative', re: /\b(relatives?|family|related|household|immediate family)\b.*\b(government|public (official|servant|sector|office)|officials?)\b|\b(government|public officials?)\b.*\b(relatives?|family|related)\b/,
       get: function (p) { return yesno(p.governmentRelative); } },
     { id: 'government employee', re: /\b(government|public sector|public service|public official|civil serv\w*|federal employee|state employee|crown corporation)\b/, not: /\b(clearance|security|grant|funding|contract|id)\b/,
       get: function (p) { return yesno(p.governmentEmployee); } },

@@ -72,6 +72,27 @@ Only when the folder has none.
 
 ## Saving new answers
 
+## Common screening questions
+
+Ask these during setup so forms rarely stop for them. Save each as profile keys where one exists, otherwise as several
+`savedAnswers` that cover the usual wordings (the longest matching phrase wins, so add the opposite wording with its own
+answer: "background check" Yes, "failed a background check" No).
+
+- How they heard about the job (default "Company careers page"); referred by / know anyone at the company; relatives
+  working there.
+- Work arrangement (`workPreference`: remote, hybrid, on-site, or "Open to remote, hybrid or on-site"); commute or
+  working in the office; employment type (full-time, contract, part-time, internship); relocation (`willingToRelocate`)
+  and relocation assistance.
+- Years of experience (`yearsExperience`), currently employed, may we contact the current employer.
+- Willing to undergo a background, reference, drug and alcohol, or credit check (the extension never fills these;
+  Claude does, from savedAnswers).
+- Security clearance: held now, willing to obtain.
+- Physical requirements: lifting (e.g. 50 lb / 23 kg), standing for long periods, outdoor or plant work, essential
+  functions with or without accommodation.
+- Licences and certifications: driver's licence, professional registration (e.g. EIT, P.Eng, CPA), safety tickets
+  (WHMIS, First Aid/CPR, H2S Alive, fall protection); `certifications` holds the list.
+- Age 18 or older; accommodation needed for the interview; willing to sign an NDA or confidentiality agreement.
+
 A new answer from the user that is likely to be needed again gets stored right away, no permission needed; mention it in a single line. Use the matching key if one exists; otherwise add to `savedAnswers` an entry `{"match": "<key phrase>", "answer": "<the user's reply>"}`. Skip answers tied to one employer ("Why this company?").
 
 Whenever profile.json changed during a run, end the report with: "In Autonomous Job Kit Autofill, open the options page, click **Import profile.json** and choose `<folder>/profile.json` so the button uses the new answers." When the user changed answers in the extension itself, have them press **Download profile.json** and place the file in the job-search folder.

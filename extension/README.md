@@ -1,7 +1,7 @@
-# Job Kit Autofill
+# Autonomous Autofill
 
 A Chrome / Edge extension (Manifest V3) that fills job application forms from your
-Job Kit for Claude `profile.json`. It never submits a form, never clicks Next, and never changes
+Autonomous `profile.json`. It never submits a form, never clicks Next, and never changes
 a field that already has an answer.
 
 ## Install (Load unpacked)
@@ -17,7 +17,7 @@ After updating the files, press the reload icon on the extension's card in `chro
 
 ## Using it
 
-- **Page button**: on supported application sites a small **Fill with Job Kit** button appears
+- **Page button**: on supported application sites a small **Fill with Autonomous** button appears
   on the right edge when the page has a form. Only a real click starts a fill.
 - **Toolbar menu**: *Fill this page* (works on any site, injected on demand) and *Edit profile*.
 - **Shortcut**: `Alt+Shift+F` fills the current page (change it at `chrome://extensions/shortcuts`).
@@ -32,12 +32,12 @@ The extension also writes a visually hidden text block at the top of the form, f
 Chrome (`get_page_text`):
 
 ```
-Job Kit report: filled 14, already filled 2, left 3. Left: Why do you want to work here? (textarea,
+Autonomous report: filled 14, already filled 2, left 3. Left: Why do you want to work here? (textarea,
 required, open question); Cover letter (file); ... Filled: First Name; ... Nothing was submitted.
 Review every answer before continuing. Profile: imported 2026-11-14, 2 saved answers.
 ```
 
-While a fill is running it reads `Job Kit report: busy filling this page. Check back in about 5 seconds.` The final `Profile:` part says when the profile was last imported or saved
+While a fill is running it reads `Autonomous report: busy filling this page. Check back in about 5 seconds.` The final `Profile:` part says when the profile was last imported or saved
 here, so an out-of-date profile is easy to spot.
 
 ## What it fills and what it never touches

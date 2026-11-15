@@ -1,11 +1,11 @@
 /*
- * Job Kit Autofill - what the user (and Claude) sees on the page.
+ * Autonomous Autofill - what the user (and Claude) sees on the page.
  *
- *  - Page button "Fill with Job Kit" (right edge). Only a trusted click (event.isTrusted) starts
+ *  - Page button "Fill with Autonomous" (right edge). Only a trusted click (event.isTrusted) starts
  *    a fill, so page scripts cannot trigger it.
  *  - Result panel listing filled / already filled / left for you.
  *  - Report block: visually hidden but readable text at the top of the form, starting with
- *    "Job Kit report:", for Claude's get_page_text.
+ *    "Autonomous report:", for Claude's get_page_text.
  *  - Marks: solid green outline on fields we filled, dashed amber outline on fields left empty.
  *
  * The button and panel live in an open shadow root so page CSS cannot restyle them.
@@ -16,7 +16,7 @@
 
   var REPORT_ID = 'jobkit-report';
   var HOST_ID = 'jobkit-ui-host';
-  var WORKING_TEXT = 'Job Kit report: busy filling this page. Check back in about 5 seconds.';
+  var WORKING_TEXT = 'Autonomous report: busy filling this page. Check back in about 5 seconds.';
 
   var host = null, shadow = null, button = null, panel = null, onFillCb = null;
   var marked = new Map(); // element -> {outline, outlineOffset}
@@ -84,9 +84,9 @@
     if (!show) { if (button) { button.remove(); button = null; } return; }
     if (button && button.isConnected) return;
     var w = wrapNode();
-    button = el('button', { type: 'button', 'class': 'btn-fill', title: 'Fill this form from your Job Kit profile (Alt+Shift+F). Nothing is submitted.' });
+    button = el('button', { type: 'button', 'class': 'btn-fill', title: 'Fill this form from your Autonomous profile (Alt+Shift+F). Nothing is submitted.' });
     button.appendChild(el('span', { 'class': 'mark', 'aria-hidden': 'true' }, 'JK'));
-    button.appendChild(el('span', null, 'Fill with Job Kit'));
+    button.appendChild(el('span', null, 'Fill with Autonomous'));
     button.addEventListener('click', function (e) {
       if (!e.isTrusted) return; // page scripts cannot start a fill
       if (onFillCb) onFillCb('button');
@@ -98,7 +98,7 @@
   function setBusy(busy) {
     if (!button) return;
     button.setAttribute('aria-busy', busy ? 'true' : 'false');
-    button.lastChild.textContent = busy ? 'Filling…' : 'Fill with Job Kit';
+    button.lastChild.textContent = busy ? 'Filling…' : 'Fill with Autonomous';
   }
 
   /* ---- report block (light DOM, readable by get_page_text) ---- */
@@ -152,7 +152,7 @@
 
   function reportText(res, fresh) {
     var left = res.left.slice().sort(function (a, b) { return (b.required ? 1 : 0) - (a.required ? 1 : 0); });
-    var t = 'Job Kit report: filled ' + res.filled.length + ', already filled ' + res.already.length + ', left ' + left.length + '.';
+    var t = 'Autonomous report: filled ' + res.filled.length + ', already filled ' + res.already.length + ', left ' + left.length + '.';
     if (left.length) {
       var shown = left.slice(0, 30).map(describeLeft);
       t += ' Left: ' + shown.join('; ') + (left.length > 30 ? '; and ' + (left.length - 30) + ' more' : '') + '.';
@@ -180,10 +180,10 @@
   function showPanel(res, message) {
     var w = wrapNode();
     if (panel) panel.remove();
-    panel = el('section', { 'class': 'panel', role: 'region', 'aria-label': 'Job Kit report' });
+    panel = el('section', { 'class': 'panel', role: 'region', 'aria-label': 'Autonomous report' });
     var head = el('div', { 'class': 'head' });
-    head.appendChild(el('h2', null, message ? 'Job Kit' : 'Job Kit filled this page'));
-    var close = el('button', { type: 'button', 'class': 'close', 'aria-label': 'Close Job Kit report' }, '×');
+    head.appendChild(el('h2', null, message ? 'Autonomous' : 'Autonomous filled this page'));
+    var close = el('button', { type: 'button', 'class': 'close', 'aria-label': 'Close Autonomous report' }, '×');
     close.addEventListener('click', function () { panel.remove(); panel = null; if (button) { button.hidden = false; button.focus(); } });
     head.appendChild(close);
     panel.appendChild(head);
@@ -211,7 +211,7 @@
         return li;
       }));
       body.appendChild(list('Already filled (not changed)', res.already, false, '', function (i) { return el('li', null, i.label); }));
-      body.appendChild(el('p', { 'class': 'note' }, 'Nothing was submitted. Green outline = filled by Job Kit, dashed amber = left for you. Check every answer before you continue.'));
+      body.appendChild(el('p', { 'class': 'note' }, 'Nothing was submitted. Green outline = filled by Autonomous, dashed amber = left for you. Check every answer before you continue.'));
     }
     panel.appendChild(body);
     w.appendChild(panel);

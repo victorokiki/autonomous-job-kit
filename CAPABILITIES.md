@@ -19,7 +19,7 @@ application and stops before Submit; at the lean level it hands you the files an
 
 | Level | Claude does | You do | Cost |
 |---|---|---|---|
-| **Lean** (Claude Code + Job Kit Autofill extension) | Reads the posting, tailors CV and letter, writes answers to paste, logs it | Fill the form with the extension's Fill button, attach files, paste answers, submit | Lowest |
+| **Lean** (Claude Code + Autonomous Autofill extension) | Reads the posting, tailors CV and letter, writes answers to paste, logs it | Fill the form with the extension's Fill button, attach files, paste answers, submit | Lowest |
 | **Assisted** | Also fills the form in Chrome, one at a time, stops before Submit | Review and submit | Medium |
 | **Full** | Batches, parallel form filling, "fill all" / "submit" on request | Review | Highest |
 
@@ -35,7 +35,7 @@ any time; it's saved as `automationLevel` in profile.json.
 | `job-kit-setup` skill | First-time setup: finds your CVs, builds one master, creates your profile, captures your CV style, sets up your search. | "Set me up", "Get started" |
 | `internship-application` skill | Finds and ranks jobs, tailors resumes and letters, fills forms, records what was entered. | "Find jobs that fit me", "Apply to 6 jobs", "What's new today?" |
 | `internship-tracker` skill | Tracker spreadsheet, check-ins asking how each application is going, follow-up and thank-you email drafts, interview prep, weekly report, dashboard. | "Show my dashboard", "Check in", "Draft a follow-up to Northwind", "Weekly report", "I got an interview at X" |
-| `extension` (Job Kit Autofill, optional) | Fills the predictable form fields instantly from your saved profile, without using Claude. | (click its Fill button, or let Claude press it) |
+| `extension` (Autonomous Autofill, optional) | Fills the predictable form fields instantly from your saved profile, without using Claude. | (click its Fill button, or let Claude press it) |
 
 ## What it does, step by step
 

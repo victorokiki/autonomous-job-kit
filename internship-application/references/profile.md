@@ -1,6 +1,6 @@
 # profile.json reference
 
-profile.json, in the job-search folder, stores the user's reusable answers. The scripts and the Job Kit Autofill extension read keys by name, so spell them exactly as in `profile-template.json`. Every key is optional.
+profile.json, in the job-search folder, stores the user's reusable answers. The scripts and the Autonomous Autofill extension read keys by name, so spell them exactly as in `profile-template.json`. Every key is optional.
 
 The extension keeps its own copy: the user loads this file with **Import profile.json** on the extension's options page and can export changes with **Download profile.json** (same schema; unknown keys survive the round trip).
 
@@ -23,7 +23,7 @@ Only when the folder has none.
    - optional self-identification (gender, pronouns, Hispanic/Latino, race, veteran, disability, LGBTQ+, transgender, sexual orientation): each an answer, "decline", or blank so the user answers per form; never deduce these from appearance, name or any other clue;
    - optional: a `writingStyle` and `extraRules` to shape drafted answers;
    - `legalName` if their legal name differs from first + last (used for signatures).
-4. Save it and say once: "profile.json is ready. In Job Kit Autofill, open the options page, click **Import profile.json** and pick this file so the Fill with Job Kit button uses the same answers."
+4. Save it and say once: "profile.json is ready. In Autonomous Autofill, open the options page, click **Import profile.json** and pick this file so the Fill with Autonomous button uses the same answers."
 
 ## Keys and allowed values
 
@@ -74,4 +74,4 @@ Only when the folder has none.
 
 A new answer from the user that is likely to be needed again gets stored right away, no permission needed; mention it in a single line. Use the matching key if one exists; otherwise add to `savedAnswers` an entry `{"match": "<key phrase>", "answer": "<the user's reply>"}`. Skip answers tied to one employer ("Why this company?").
 
-Whenever profile.json changed during a run, end the report with: "In Job Kit Autofill, open the options page, click **Import profile.json** and choose `<folder>/profile.json` so the button uses the new answers." When the user changed answers in the extension itself, have them press **Download profile.json** and place the file in the job-search folder.
+Whenever profile.json changed during a run, end the report with: "In Autonomous Autofill, open the options page, click **Import profile.json** and choose `<folder>/profile.json` so the button uses the new answers." When the user changed answers in the extension itself, have them press **Download profile.json** and place the file in the job-search folder.

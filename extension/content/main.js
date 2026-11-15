@@ -1,5 +1,5 @@
 /*
- * Job Kit Autofill - content script entry point (loaded last).
+ * Autonomous Autofill - content script entry point (loaded last).
  *
  * Loads the profile from chrome.storage.local, shows the page button when the page has a form
  * (and the "show page button" setting is on), and answers fill requests from the service worker
@@ -25,7 +25,7 @@
     var profile = data.profile;
     if (!profile || typeof profile !== 'object' || !Object.keys(profile).length) {
       if (!JK.labels.looksLikeForm(document)) return { controls: 0, noProfile: true };
-      var msg = 'Job Kit report: no profile saved yet. Open Job Kit Autofill options (Edit profile) and import profile.json, then fill again.';
+      var msg = 'Autonomous report: no profile saved yet. Open Autonomous Autofill options (Edit profile) and import profile.json, then fill again.';
       JK.ui.setReport(msg, []);
       JK.ui.showPanel(null, 'No profile saved yet. Open the extension menu, choose "Edit profile" and import your profile.json, then try again.');
       return { controls: 0, noProfile: true, report: msg };

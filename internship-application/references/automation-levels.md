@@ -10,7 +10,7 @@ scripts (search, ranking, PDFs, tracker) use far less.
 
 ## The three levels
 
-### `lean`: Claude Code + the Job Kit Autofill extension (lowest cost)
+### `lean`: Claude Code + the Autonomous Autofill extension (lowest cost)
 
 Claude prepares everything; the user fills and submits the form themselves with the extension's help.
 
@@ -19,7 +19,7 @@ Claude prepares everything; the user fills and submits the form themselves with 
 - **Tailoring:** as usual: tailored resume, cover letter when wanted, written answers, changes.md.
 - **Instead of filling:** write `answers-to-paste.md` in the job folder (format below), copy the PDFs into the
   space-free uploads folder (filling.md, "Paths with spaces"), log the tracker row as `Ready to submit` with next step
-  "Apply yourself: open the link, click Fill with Job Kit, attach the files, paste the answers", and report the link
+  "Apply yourself: open the link, click Fill with Autonomous, attach the files, paste the answers", and report the link
   and the steps.
 - The user tells Claude "I submitted Northwind" afterwards (tracker skill), or the next check-in asks.
 - **Never** drive the browser in this level unless the user asks for that one application ("fill this one for me");
@@ -40,7 +40,7 @@ Link: <application URL>
 Files: <uploads folder path>/<Resume PDF>, <Cover letter PDF or "none">
 
 ## Before you start
-1. Open the link, sign in if asked, then click **Fill with Job Kit** (extension) on each page.
+1. Open the link, sign in if asked, then click **Fill with Autonomous** (extension) on each page.
 2. Attach the files above (resume, and the letter if there's a field for it).
 3. Paste the answers below where the extension left blanks. Leave anything marked "yours" for you to decide.
 
@@ -55,7 +55,7 @@ Tell Claude: "I submitted <Company>".
 
 ### `assisted`: Claude fills one form at a time (medium cost)
 
-- Claude in Chrome opens the form. Press the Job Kit Autofill button ("Fill with Job Kit") first (it does the standard fields for free),
+- Claude in Chrome opens the form. Press the Autonomous Autofill button ("Fill with Autonomous") first (it does the standard fields for free),
   then Claude fills only what's left, attaches the files, and stops before Submit (Review mode unless the user says
   otherwise).
 - **One application at a time.** In a batch, tailor all of them first, then fill the forms one after another, never

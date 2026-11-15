@@ -1,5 +1,5 @@
 /*
- * Job Kit Autofill - find the form controls on a page and the question each one asks.
+ * Autonomous Autofill - find the form controls on a page and the question each one asks.
  *
  * collect() returns "fields" in document order:
  *   { kind, el, els, options, q: {text, label, context, control, inputType, quality}, required }

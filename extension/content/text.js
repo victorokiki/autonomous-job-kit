@@ -1,5 +1,5 @@
 /*
- * Job Kit Autofill - text helpers (pure functions, no DOM).
+ * Autonomous Autofill - text helpers (pure functions, no DOM).
  *
  * norm() turns any label or option into one canonical form: lowercase, accents removed,
  * every character other than a-z, 0-9 and "+" replaced by a space, spaces collapsed.

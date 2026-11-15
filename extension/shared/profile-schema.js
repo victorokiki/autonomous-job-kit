@@ -1,5 +1,5 @@
 /*
- * Job Kit Autofill - profile schema and profile.json round-trip helpers.
+ * Autonomous Autofill - profile schema and profile.json round-trip helpers.
  *
  * Shared by the options page (to build the editor) and by the Node check script in
  * tests/extension/. It has no DOM or chrome.* dependencies.

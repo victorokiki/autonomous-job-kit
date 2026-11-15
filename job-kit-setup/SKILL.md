@@ -3,7 +3,7 @@ name: job-kit-setup
 description: "First-time setup for the job and internship kit: find my existing CVs, build one master resume, create profile.json, capture my CV style in a style guide, set up my job search (country, region, roles, employers, immigration route), choose how much Claude automates (lean, assisted or full) and explain what it costs. Use when I say set me up, get started, onboard me, what can this do, or when the job-search folder has no profile.json or master resume yet."
 ---
 
-# Job kit setup
+# Autonomous setup
 
 Interview a new user and leave them with a working job-search folder: one master resume, `profile.json`,
 `style-guide/style-guide.md` and `search.json`. Then hand over to the `internship-application` and
@@ -160,7 +160,7 @@ Explain that the biggest cost is Claude driving the browser, then offer the thre
 `../internship-application/references/automation-levels.md` in one message, each with what it costs, what the user
 still does, and the risks. Keep it to this shape:
 
-> **1. Lean: Claude Code + the Job Kit Autofill extension (lowest cost).** I read the posting, tailor your CV and cover
+> **1. Lean: Claude Code + the Autonomous Autofill extension (lowest cost).** I read the posting, tailor your CV and cover
 > letter, and write the answers to paste. You open the form, click the extension's Fill button, attach the files and
 > submit. *Good:* uses the least of your plan; you control every field; I never act in your browser. *Watch out:* you
 > do 5–10 minutes of form work per job.
@@ -176,7 +176,7 @@ still does, and the risks. Keep it to this shape:
 Recommend from their answers, briefly: **lean** for a Pro plan or anyone who wants full control, **assisted** for most
 people who want the forms done, **full** for a Max plan and a high volume. Save the choice as profile.json
 `automationLevel` and tell them they can switch any time ("switch me to lean mode"). For lean or assisted, help them
-install the Job Kit Autofill extension and load it unpacked (extension/README.md) and import profile.json on its profile page; for assisted or full,
+install the Autonomous Autofill extension and load it unpacked (extension/README.md) and import profile.json on its profile page; for assisted or full,
 check Claude in Chrome is installed.
 
 Then the general cost tips, plainly:

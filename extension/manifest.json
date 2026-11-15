@@ -1,9 +1,9 @@
 {
   "manifest_version": 3,
-  "name": "Job Kit Autofill",
-  "short_name": "Job Kit",
+  "name": "Autonomous Autofill",
+  "short_name": "Autonomous",
   "version": "2.0.0",
-  "description": "Fills job application forms from your Job Kit for Claude profile. Never submits; leaves sensitive and open questions for you.",
+  "description": "Fills job application forms from your Autonomous profile. Never submits; leaves sensitive and open questions for you.",
   "minimum_chrome_version": "110",
   "permissions": [
     "storage",
@@ -33,7 +33,7 @@
     "service_worker": "background.js"
   },
   "action": {
-    "default_title": "Job Kit Autofill",
+    "default_title": "Autonomous Autofill",
     "default_popup": "popup/popup.html",
     "default_icon": {
       "16": "icons/icon16.png",
@@ -57,7 +57,7 @@
       "suggested_key": {
         "default": "Alt+Shift+F"
       },
-      "description": "Fill this page with Job Kit"
+      "description": "Fill this page with Autonomous"
     }
   },
   "content_scripts": [

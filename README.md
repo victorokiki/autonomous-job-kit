@@ -1,8 +1,8 @@
-# Job Kit for Claude
+# Autonomous
 
 **Paste a job link. Get a tailored CV, a cover letter and a filled-in application, ready for you to review.**
 
-Job Kit for Claude turns Claude into your personal job-search assistant. It builds one strong master CV from the CVs
+Autonomous turns Claude into your personal job-search assistant. It builds one strong master CV from the CVs
 you already have, finds and ranks jobs that fit you, tailors your resume and cover letter to every posting without
 inventing a single fact, fills in the application form, and checks in with you on every application until you hear back.
 
@@ -35,7 +35,7 @@ Driving the browser is what uses most of your Claude plan. Setup asks which leve
 
 | Level | Claude does | You do | Cost | Good | Watch out |
 |---|---|---|---|---|---|
-| **Lean**: Claude Code + the [Job Kit Autofill extension](extension/) | Reads the posting, tailors your CV and cover letter, writes the answers to paste, logs it | Open the form, click the extension's **Fill**, attach the files, paste the answers, submit | Lowest | Your plan goes much further; you control every field; Claude never acts in your browser; no Claude in Chrome needed | About 5–10 minutes of form work per job |
+| **Lean**: Claude Code + the [Autonomous Autofill extension](extension/) | Reads the posting, tailors your CV and cover letter, writes the answers to paste, logs it | Open the form, click the extension's **Fill**, attach the files, paste the answers, submit | Lowest | Your plan goes much further; you control every field; Claude never acts in your browser; no Claude in Chrome needed | About 5–10 minutes of form work per job |
 | **Assisted** | All of the above, plus fills the form in Chrome (after the extension's Fill), one at a time, stopping before Submit | Review and click Submit | Medium | Hands-off forms, and you still review each one | More usage per job; Claude works in your signed-in Chrome (close private tabs); unusual questions can be misread |
 | **Full automation** | Batches of jobs, forms filled in parallel, "fill all" or "submit" when you ask | Review (unless you ask it to submit) | Highest | Fastest for volume | Can use a big share of a Pro plan's limit in one or two batches (Max suits it better); a mistake can repeat across several applications; more automated activity on job sites |
 
@@ -49,7 +49,7 @@ automation.
 | [`job-kit-setup`](job-kit-setup/) | First-time setup. Claude interviews you: finds your existing CVs, builds **one master CV** (flagging contradictions instead of merging them), creates your `profile.json`, captures your CV style in a style guide, and sets up your job search. |
 | [`internship-application`](internship-application/) | Finds jobs (SimplifyJobs, Canada's Job Bank, company boards on Greenhouse, Lever, Ashby, SmartRecruiters and Workday, Remotive), **ranks them by fit**, tailors and fact-checks a resume per posting, writes cover letters, fills the application in Chrome and records what it entered. Daily digest of new matches. |
 | [`internship-tracker`](internship-tracker/) | Tracks every application in `tracker.xlsx` and **checks in with you** about the ones with no news (submitted, assessment, interview stage, offer, accepted, rejected). Interview prep, and a clean `dashboard.html` with your pipeline and what needs updating. |
-| [`extension`](extension/) | **Job Kit Autofill**, the kit's own Chrome extension: fills the predictable fields (name, contact, school, work history, yes/no and self-ID answers you chose) from your profile instantly, without using Claude, and leaves a report Claude can read. |
+| [`extension`](extension/) | **Autonomous Autofill**, the kit's own Chrome extension: fills the predictable fields (name, contact, school, work history, yes/no and self-ID answers you chose) from your profile instantly, without using Claude, and leaves a report Claude can read. |
 
 It never invents metrics or experience, never types passwords or solves CAPTCHAs, never automates LinkedIn, and never
 deletes your files. See [CAPABILITIES.md](CAPABILITIES.md) for the full list.
@@ -58,7 +58,7 @@ deletes your files. See [CAPABILITIES.md](CAPABILITIES.md) for the full list.
 
 - A **paid Claude plan**: Pro, Max, Team or Enterprise (skills and Claude in Chrome aren't on the free plan).
 - The [Claude desktop app](https://claude.com/download) (Cowork or Code tab) or [Claude Code](https://code.claude.com).
-- Google Chrome with **[Claude in Chrome](https://support.claude.com/en/articles/12012173-get-started-with-claude-in-chrome)** for the assisted and full levels (Claude opens pages and fills forms). For the lean level, the free Job Kit Autofill extension in this repo is enough.
+- Google Chrome with **[Claude in Chrome](https://support.claude.com/en/articles/12012173-get-started-with-claude-in-chrome)** for the assisted and full levels (Claude opens pages and fills forms). For the lean level, the free Autonomous Autofill extension in this repo is enough.
 - Your existing CV(s): PDF, Word or Overleaf.
 - For building PDFs yourself: Python 3, [Tectonic](https://tectonic-typesetting.github.io/) and Poppler (below).
 
@@ -69,7 +69,7 @@ deletes your files. See [CAPABILITIES.md](CAPABILITIES.md) for the full list.
 Click **Code → Download ZIP** on this page and unzip it, or clone it:
 
 ```bash
-git clone https://github.com/victorokiki/job-kit-for-claude.git
+git clone https://github.com/victorokiki/autonomous.git
 ```
 
 ### 2. Add the skills
@@ -94,14 +94,14 @@ powershell -ExecutionPolicy Bypass -File .\install.ps1
 ready-to-upload zips in `dist/`; upload each in **Customize → Skills**
 ([help](https://support.claude.com/en/articles/12512180-use-skills-in-claude)).
 
-### Add the Job Kit Autofill extension (optional; needed for the lean level)
+### Add the Autonomous Autofill extension (optional; needed for the lean level)
 
 1. Open `chrome://extensions` (Edge: `edge://extensions`) and turn on **Developer mode** (top right).
 2. Click **Load unpacked** and choose the kit's `extension` folder.
 3. Pin it from the puzzle-piece menu, open its profile page and click **Import profile.json** once setup has made your
    profile (or fill the page in by hand).
 
-On application sites a **Fill with Job Kit** button appears on the right edge. See [extension/README.md](extension/README.md).
+On application sites a **Fill with Autonomous** button appears on the right edge. See [extension/README.md](extension/README.md).
 
 ### 3. Install the helpers
 
@@ -195,7 +195,7 @@ These are checks, not decisions: you confirm on the official site. See
 - Apply in **batches of about 6**, and start a **new conversation for each batch**. Long conversations use far more.
 - Use the strongest model for tailoring and letters, and a **cheaper model** (for example Sonnet or Haiku) with lower
   effort for form-filling and the daily digest.
-- The optional Job Kit Autofill extension fills standard fields without Claude.
+- The optional Autonomous Autofill extension fills standard fields without Claude.
 
 ## Customize it
 
@@ -277,7 +277,7 @@ Scripts Claude runs for you:
 - **Fit ranking** (0–100 with reasons and skill gaps) and a **daily digest** of new matches.
 - **Tailored resume and cover letter per posting**, fact-checked against your master CV: XYZ bullets, page limits per
   job type, your style guide, banned words, readable digits for applicant tracking systems, merged letter + resume PDFs.
-- **Form filling** with Claude in Chrome and the kit's own **Job Kit Autofill** extension, always stopping before Submit
+- **Form filling** with Claude in Chrome and the kit's own **Autonomous Autofill** extension, always stopping before Submit
   unless you say otherwise.
 - **Scam and red-flag warnings** on postings (pay-to-apply, chat-only contact, crypto, suspicious pay).
 - **Immigration-route checks**: NOC/TEER for Canada's CEC and PNPs, the UK register of licensed sponsors for Skilled
@@ -289,4 +289,4 @@ Scripts Claude runs for you:
 
 ## License
 
-Job Kit for Claude © 2026 [victorokiki](https://github.com/victorokiki), released under the [MIT license](LICENSE).
+Autonomous © 2026 [victorokiki](https://github.com/victorokiki), released under the [MIT license](LICENSE).

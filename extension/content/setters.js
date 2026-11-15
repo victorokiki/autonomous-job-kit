@@ -1,5 +1,5 @@
 /*
- * Job Kit Autofill - put a value into a control in a way frameworks notice.
+ * Autonomous Autofill - put a value into a control in a way frameworks notice.
  *
  * apply(field, want, opts) -> Promise<{ok, value?, quiet?, reason?}>
  *   ok:true  value = what was entered (for the report)

@@ -40,8 +40,8 @@ Your job: take a posting and produce a tailored resume (one page by default), a 
 
 | Level | You do | The user does |
 |---|---|---|
-| `lean` | read the posting without a browser, tailor, write `answers-to-paste.md` | fills with Job Kit Autofill, attaches, submits |
-| `assisted` | fill one form at a time in Chrome after pressing **Fill with Job Kit**, stop before Submit | reviews, submits |
+| `lean` | read the posting without a browser, tailor, write `answers-to-paste.md` | fills with Autonomous Autofill, attaches, submits |
+| `assisted` | fill one form at a time in Chrome after pressing **Fill with Autonomous**, stop before Submit | reviews, submits |
 | `full` | everything here, including parallel batch filling, Fill all and Submit | reviews |
 
 Unset: use `assisted` for a single posting; before the first batch, ask once and save the choice.
@@ -51,7 +51,7 @@ Unset: use `assisted` for a single posting; before the first batch, ask once and
 | Item | Notes |
 |---|---|
 | `resume/` | The master: an unzipped Overleaf project (main file = the `.tex` with `\documentclass`) or a `.docx`. Often two pages or more; never shorten it. |
-| `profile.json` | Standard answers. Job Kit Autofill reads it via **Import profile.json** and writes it via **Download profile.json**. Missing → build it from `references/profile-template.json`; consult `references/profile.md` first when you create it or store an answer in it. |
+| `profile.json` | Standard answers. Autonomous Autofill reads it via **Import profile.json** and writes it via **Download profile.json**. Missing → build it from `references/profile-template.json`; consult `references/profile.md` first when you create it or store an answer in it. |
 | `transcript.pdf` | Optional. |
 | `jobs.txt` | Queue: one link per line, `#` starts a note, everything under `# done` is finished. |
 | `search.json` | Tracks, places, Job Bank queries, employer boards, country, pathway. Used by find_jobs, rank_jobs, job_digest. |
@@ -168,7 +168,7 @@ Show, briefly: the main changes, eligibility notes, gaps, the PDF path, the lett
 ### 5. Fill
 
 - `lean`: don't fill. Produce `answers-to-paste.md`, put copies of the files in the uploads folder, log `Ready to submit` as automation-levels.md describes, then go straight to step 8.
-- Other levels: read `references/filling.md` (first form of the session) and follow it. In `assisted`, press **Fill with Job Kit** first and only handle what it leaves.
+- Other levels: read `references/filling.md` (first form of the session) and follow it. In `assisted`, press **Fill with Autonomous** first and only handle what it leaves.
 
 ### 6. Record
 

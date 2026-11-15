@@ -1,8 +1,8 @@
 /*
- * Job Kit Autofill - the fill run.
+ * Autonomous Autofill - the fill run.
  *
  * run({profile, resume}) -> Promise<summary>
- *   summary = { controls, filled, already, left, leftItems: [text], report: 'Job Kit report: ...' }
+ *   summary = { controls, filled, already, left, leftItems: [text], report: 'Autonomous report: ...' }
  * opts.profileMeta = {source: 'imported'|'saved', date: 'YYYY-MM-DD'} (written by the options page).
  *
  * Steps: collect fields -> write the "still filling" report -> for each field in page order:

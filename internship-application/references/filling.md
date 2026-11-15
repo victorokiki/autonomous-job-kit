@@ -11,15 +11,15 @@ Load this before your first form of the session. Batch filling subagents get onl
 
 ## Browser setup
 
-- Use Claude in Chrome in Google Chrome (the user's own browser). If the tab group keeps vanishing or the tab is lost after each action (Edge does this), say so once and switch to Claude's built-in browser, which cannot upload files or press Job Kit Autofill's button.
+- Use Claude in Chrome in Google Chrome (the user's own browser). If the tab group keeps vanishing or the tab is lost after each action (Edge does this), say so once and switch to Claude's built-in browser, which cannot upload files or press Autonomous Autofill's button.
 - **Lost tab group** (errors saying the session's group no longer exists, or that a tab isn't in Claude's group): don't restart the form. Call `tabs_context_mcp` with `createIfEmpty` to get a new group, load the application URL in a fresh tab and resume from application-record.md; a fresh sign-in may be needed. Batch subagents follow their prompt instead (batch.md).
 - **Frames.** If `find` and `read_page` can't see the fields, the form sits in a frame. Before anything else, load the frame's own URL in the tab: for Greenhouse the embed URL (`job-boards.greenhouse.io/embed/job_app?...`), or the iCIMS page URL with `in_iframe=1` appended.
 
-## Job Kit Autofill
+## Autonomous Autofill
 
-The extension adds a small fixed **Fill with Job Kit** button on the right edge of pages that hold a form (supported application systems; elsewhere the user can use the popup's "Fill this page" or Alt+Shift+F). It fills predictable fields from the profile the user imported, outlines what it filled in solid green and what it left in dashed amber, never overwrites a field that already has a value, never ticks consent boxes, never fills open-ended text unless a saved answer matches, and never clicks Next or Submit. Running it twice is harmless.
+The extension adds a small fixed **Fill with Autonomous** button on the right edge of pages that hold a form (supported application systems; elsewhere the user can use the popup's "Fill this page" or Alt+Shift+F). It fills predictable fields from the profile the user imported, outlines what it filled in solid green and what it left in dashed amber, never overwrites a field that already has a value, never ticks consent boxes, never fills open-ended text unless a saved answer matches, and never clicks Next or Submit. Running it twice is harmless.
 
-**Using it (one browser batch):** click **Fill with Job Kit**, pause roughly 10 seconds, then call `get_page_text`. The form's text now begins with a line starting `Job Kit report:`, such as "Job Kit report: filled 14, left 3. Left: Why do you want to work here? (textarea); Cover letter (file)". A "busy filling" report means: pause 5 more seconds and re-read. (The panel shows only its title through `read_page`.)
+**Using it (one browser batch):** click **Fill with Autonomous**, pause roughly 10 seconds, then call `get_page_text`. The form's text now begins with a line starting `Autonomous report:`, such as "Autonomous report: filled 14, left 3. Left: Why do you want to work here? (textarea); Cover letter (file)". A "busy filling" report means: pause 5 more seconds and re-read. (The panel shows only its title through `read_page`.)
 
 1. The `Left:` list is your work list (the resume upload always appears there). Each entry names the field and its kind.
 2. The on-page panel also lists what it filled and what was already filled. Skim those values (via `read_page` or `find`) against the profile and resume; correct only clear mistakes and mention them. A value ending in "…" is truncated in the report; take the full one from profile.json or the page.

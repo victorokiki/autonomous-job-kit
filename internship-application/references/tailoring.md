@@ -9,10 +9,18 @@ Source of truth: the master resume only. Never open resumes, `resume-src/`, lett
 - Job, club and research titles; organization names; dates; locations.
 - Any number (GPA, users, percentages, team size, hours): no rounding up, no adding together.
 - Academic details: institution, degree, program, minor, course titles, graduation date.
-- The contact block.
+- The contact block, except its location: use the posting's `Your location line:` (see below).
 - How big the user's role was. "Assisted with" can't turn into "led", "helped build" can't turn into "built", and coursework can't pose as a shipped product.
 
 Anything the role asks for that the user doesn't have is recorded as a gap in changes.md and stays off the resume.
+
+**Location line.** job-posting.md (fetched with `--profile`) has a `Your location line:` such as
+`Surrey, BC · Relocating to Toronto, ON (job is in Toronto, ON)`. Put the part before the brackets where the master's
+contact block shows the city, replacing only the city and province: the street, if any, is dropped for that version.
+It names the job's city only when the job is on-site or hybrid outside the user's commute area and `willingToRelocate`
+is `"yes"`; remote and local jobs keep the plain city. Never write the job's city as where the user lives: forms,
+background checks and interviews use the real one. `relocationWording` in profile.json changes the wording
+(e.g. `"Open to relocating to {city}"`). Note the change under "What changed" in changes.md.
 
 **Honesty test:** picture the user's supervisor, instructor or teammate reading the line. Would they nod? Borrowing the posting's vocabulary for work the master documents is fine ("REST API" for endpoints the user wrote in Flask). A tool, number or responsibility absent from the master is not.
 
@@ -210,6 +218,7 @@ Aim for a short file.
 - Plain text from the greeting ("Dear Harbourline hiring team,") to the sign-off ("Sincerely," then the user's name on its own line), blank lines between paragraphs. No header: the build adds name, contact line, date and company.
 - Under the word limit (`letterMaxWords`, default 250).
 - 3-4 brief paragraphs: which role and what draws the user to this team (echoing the posting); a proof point or two drawn from the master, with the user's personal contribution and its real figures; what they want to learn; when they're free (`availableFrom`-`availableUntil`).
+- When the location line says the user is relocating, one sentence in the first or last paragraph says so, e.g. "I am relocating to Toronto and can start in person from <availableFrom>"; add "at my own cost" only when the saved answer for relocation assistance is No. cover_letter.py puts the same line in the letter's contact line.
 - Do whatever the posting asks of the letter (the quote on the `Cover letter:` line), e.g. name the role or answer its questions.
 - Same factual limits as the resume: master and profile only. Skills the posting wants but the master lacks are not mentioned as the user's.
 - Voice from `writingStyle`; every `extraRules` line applies.

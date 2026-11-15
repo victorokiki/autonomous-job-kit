@@ -52,6 +52,8 @@ any time; it's saved as `automationLevel` in profile.json.
    sponsorship" wording and pay below the minimum you entered. It never decides your immigration status for you.
 4. **Tailors your resume** in three passes (the posting's angle, choose and order, rewrite every kept bullet) and
    fact-checks it against your master: new numbers, tools or titles that aren't in your master are flagged.
+   For an on-site or hybrid job in another city, the header reads "Surrey, BC · Relocating to Toronto, ON" (your
+   city, then the job's), and the cover letter says you're relocating. Remote and local jobs keep just your city.
 5. **Writes a cover letter** when the posting wants one (or always, if you prefer), and can merge it with the resume
    into one PDF for forms with a single upload box.
 6. **Fills the form** in Chrome (Claude in Chrome), attaches the files, answers from your profile and saved answers,

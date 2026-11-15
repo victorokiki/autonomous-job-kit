@@ -11,7 +11,7 @@ Steps, in order:
   1. build (.tex with --out) with build_resume.py; when the PDF is over the page limit the run stops here and reports
      only how many lines to cut. Page limit: --max-pages, else profile resumeMaxPages, else 1.
   2. compare_bullets.py MASTER TAILORED
-  3. check_resume.py MASTER TAILORED --resume (profile as --known, the posting's company and role as --allow)
+  3. check_resume.py MASTER TAILORED --resume (profile as --known, the posting's company, role and city as --allow)
   4. ats_check.py on the PDF (keyword coverage when --posting is given)
   5. page 1 rendered to <PDF base>-page1.png at 80 dpi (when pdftoppm is installed)
   6. <PDF base>-changes.md written beside the PDF: a changes.md skeleton (Angle, Page, Reworded before -> after,
@@ -37,14 +37,14 @@ for _p in (HERE, os.path.join(HERE, '..', '..', 'lib')):
         break
 if HERE not in sys.path:
     sys.path.insert(0, HERE)
-from jobkit import bullets, cli, files, latex, text  # noqa: E402
+from jobkit import bullets, cli, files, latex, location, text  # noqa: E402
 import ats_check  # noqa: E402
 import build_resume  # noqa: E402
 import compare_bullets  # noqa: E402
 
 
 def posting_fields(path):
-    out = {'company': '', 'role': ''}
+    out = {'company': '', 'role': '', 'location': ''}
     if not path:
         return out
     try:
@@ -197,7 +197,9 @@ def run(a):
 
     # 3. facts
     known = [a.profile] if a.profile else []
-    allow = [v for v in (post['company'], post['role']) if v]
+    loc_line = location.location_line(profile, post['location']) if post['location'] else {}
+    allow = [v for v in (post['company'], post['role'], loc_line.get('job_city'),
+                         loc_line.get('line') if loc_line.get('relocating') else '') if v]
     facts, _ = bullets.fact_check(a.master, a.tailored, known, allow, resume=True)
     for n in facts.get('new_numbers', []):
         fix.append(f'Number "{n["raw"]}" is not in the master or profile ("...{n["context"]}..."): use the true '

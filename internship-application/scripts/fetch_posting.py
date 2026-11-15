@@ -131,7 +131,7 @@ def process(p, n, args, profile, rows):
                                             role=p.get('role'), system=p.get('system'))
     name = files.safe_name(f"{n:02d} {p.get('company') or 'Unknown'} - {p.get('role') or 'Unknown role'}", 110) + '.md'
     path = os.path.join(args.out_dir, name)
-    files.write_text(path, postings.render_markdown(p, entry['screen'], entry['screen_why'], entry['red_flags'], cl))
+    files.write_text(path, postings.render_markdown(p, entry['screen'], entry['screen_why'], entry['red_flags'], cl, profile))
     entry['file'] = path
     return entry
 

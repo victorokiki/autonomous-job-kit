@@ -132,7 +132,7 @@ The fetch's `screen` is a first pass: `skip` (reason in `screen_why`), `check` (
 
 Read `references/tailoring.md` before the first tailoring of the session, and overleaf.md as well when the master is LaTeX.
 
-1. Work on a scratch copy of the master, using tailoring.md's three passes. A `.docx` copy is edited within its own paragraphs using the docx skill, then exported to PDF.
+1. Work on a scratch copy of the master, using tailoring.md's three passes. Set the contact block's city to the posting's `Your location line:` (job city for out-of-town on-site jobs; tailoring.md). A `.docx` copy is edited within its own paragraphs using the docx skill, then exported to PDF.
 2. Page limit: 1 page; with `resumeMaxPages`, up to that many for regular jobs, but internships, co-ops and student roles always get `--max-pages 1`. A style guide controls layout and section order, never facts.
 3. Run the check (first run of the session: add `--check-template`; for a `.docx` use `--pdf "<scratch PDF>"` instead of `--out`):
 

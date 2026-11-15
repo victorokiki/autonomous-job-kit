@@ -48,6 +48,7 @@ for _p in (HERE, os.path.join(HERE, '..', '..', 'lib')):
         sys.path.insert(0, os.path.abspath(_p))
         break
 from jobkit import cli, files, text  # noqa: E402
+from jobkit import location as loc  # noqa: E402
 
 try:                                  # shared LaTeX helper from the resume pipeline; optional
     from jobkit import latex as _jk_latex
@@ -361,10 +362,12 @@ PREAMBLE = r"""\documentclass[11pt,letterpaper]{article}
 """
 
 
-def build_tex(profile, company, role, greeting, body, signoff, name_lines, location='', subject='', today=None):
+def build_tex(profile, company, role, greeting, body, signoff, name_lines, location='', subject='', today=None,
+              job_location=None):
     name = full_name(profile) or (name_lines[0] if name_lines else '')
     style = (profile.get('letterStyle') or '').strip().lower()
-    contact_bits = [city_line(profile), (profile.get('phone') or '').strip(), (profile.get('email') or '').strip()]
+    where = loc.location_line(profile, job_location)['line'].split(' · ') if job_location else [city_line(profile)]
+    contact_bits = where + [(profile.get('phone') or '').strip(), (profile.get('email') or '').strip()]
     sep = ' \\textbar{} '
     lk = links(profile)
     date = tex_escape(letter_date(profile, today))
@@ -594,8 +597,9 @@ def main():
         cli.emit(result, cli.NO_LATEX)
     result['engine'] = engine
 
+    job_location = a.location.strip() or (posting_field(posting_text, 'Location') if posting_text else '')
     tex_src = build_tex(profile, a.company, a.role, greeting, body, signoff, name_lines, location=location,
-                        subject=a.subject.strip())
+                        subject=a.subject.strip(), job_location=job_location)
     pdf_bytes, errors, helper = compile_pdf(tex_src, engine)
     result['compiled_with'] = helper
     if pdf_bytes is None:

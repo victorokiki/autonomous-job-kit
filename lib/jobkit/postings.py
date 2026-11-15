@@ -1025,8 +1025,15 @@ def question_line(q, max_options=12):
     return f"- [{'required' if q.get('required') else 'optional'}] {q.get('label')} ({q.get('type')}{extra})"
 
 
-def render_markdown(p, screen='ok', screen_why=None, flags=None, cl=('unknown', '')):
-    """job-posting.md text (format in the spec, section 2)."""
+def _loc_line(profile, loc):
+    from .location import location_line
+    r = location_line(profile, loc)
+    return f"{r['line']} ({r['why']})" if r['line'] else f"(set city in profile.json; {r['why']})"
+
+
+def render_markdown(p, screen='ok', screen_why=None, flags=None, cl=('unknown', ''), profile=None):
+    """job-posting.md text (format in the spec, section 2). With a profile, adds the location line for the resume
+    and letter (location.location_line)."""
     status, quote = cl
     reasons = '; '.join(w.rsplit(' -> ', 1)[-1] for w in (screen_why or []) if not w.rsplit(' -> ', 1)[-1].startswith('note:'))
     flags_line = '; '.join(f"{x['flag']} (\"{x['quote']}\")" for x in flags or []) or 'none'
@@ -1035,6 +1042,7 @@ def render_markdown(p, screen='ok', screen_why=None, flags=None, cl=('unknown', 
              f"- Role: {p.get('role') or 'unknown'}",
              f"- URL: {p.get('url') or ''}",
              f"- Location: {p.get('location') or 'not stated'}",
+             *([f"- Your location line: {_loc_line(profile, p.get('location'))}"] if profile else []),
              f"- Deadline: {p.get('deadline') or 'not stated'}",
              f"- Pay: {p.get('pay') or 'not stated'}",
              f"- Posted: {p.get('posted') or 'unknown'}",

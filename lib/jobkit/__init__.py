@@ -1,4 +1,4 @@
-"""Autonomous: shared library for the kit's command-line scripts.
+"""Autonomous Job Kit: shared library for the kit's command-line scripts.
 
 The scripts in each skill's scripts/ folder import from here. In the repository the package lives in lib/jobkit;
 install.sh / install.ps1 copy it into every installed skill's scripts/ folder, so each skill works on its own.

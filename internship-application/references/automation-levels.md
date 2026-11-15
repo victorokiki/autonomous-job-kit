@@ -10,7 +10,7 @@ scripts (search, ranking, PDFs, tracker) use far less.
 
 ## The three levels
 
-### `lean`: Claude Code + the Autonomous Autofill extension (lowest cost)
+### `lean`: Claude Code + the Autonomous Job Kit Autofill extension (lowest cost)
 
 Claude prepares everything; the user fills and submits the form themselves with the extension's help.
 
@@ -55,7 +55,7 @@ Tell Claude: "I submitted <Company>".
 
 ### `assisted`: Claude fills one form at a time (medium cost)
 
-- Claude in Chrome opens the form. Press the Autonomous Autofill button ("Fill with Autonomous") first (it does the standard fields for free),
+- Claude in Chrome opens the form. Press the Autonomous Job Kit Autofill button ("Fill with Autonomous") first (it does the standard fields for free),
   then Claude fills only what's left, attaches the files, and stops before Submit (Review mode unless the user says
   otherwise).
 - **One application at a time.** In a batch, tailor all of them first, then fill the forms one after another, never

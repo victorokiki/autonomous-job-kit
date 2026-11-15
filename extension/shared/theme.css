@@ -1,4 +1,4 @@
-/* Autonomous Autofill - shared colour tokens for the options page and popup (light and dark). */
+/* Autonomous Job Kit Autofill - shared colour tokens for the options page and popup (light and dark). */
 :root {
   color-scheme: light dark;
   --bg: #f6f7fb;

@@ -1,5 +1,5 @@
 /*
- * Autonomous Autofill - the fill run.
+ * Autonomous Job Kit Autofill - the fill run.
  *
  * run({profile, resume}) -> Promise<summary>
  *   summary = { controls, filled, already, left, leftItems: [text], report: 'Autonomous report: ...' }

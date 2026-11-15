@@ -40,7 +40,7 @@ Your job: take a posting and produce a tailored resume (one page by default), a 
 
 | Level | You do | The user does |
 |---|---|---|
-| `lean` | read the posting without a browser, tailor, write `answers-to-paste.md` | fills with Autonomous Autofill, attaches, submits |
+| `lean` | read the posting without a browser, tailor, write `answers-to-paste.md` | fills with Autonomous Job Kit Autofill, attaches, submits |
 | `assisted` | fill one form at a time in Chrome after pressing **Fill with Autonomous**, stop before Submit | reviews, submits |
 | `full` | everything here, including parallel batch filling, Fill all and Submit | reviews |
 
@@ -51,7 +51,7 @@ Unset: use `assisted` for a single posting; before the first batch, ask once and
 | Item | Notes |
 |---|---|
 | `resume/` | The master: an unzipped Overleaf project (main file = the `.tex` with `\documentclass`) or a `.docx`. Often two pages or more; never shorten it. |
-| `profile.json` | Standard answers. Autonomous Autofill reads it via **Import profile.json** and writes it via **Download profile.json**. Missing → build it from `references/profile-template.json`; consult `references/profile.md` first when you create it or store an answer in it. |
+| `profile.json` | Standard answers. Autonomous Job Kit Autofill reads it via **Import profile.json** and writes it via **Download profile.json**. Missing → build it from `references/profile-template.json`; consult `references/profile.md` first when you create it or store an answer in it. |
 | `transcript.pdf` | Optional. |
 | `jobs.txt` | Queue: one link per line, `#` starts a note, everything under `# done` is finished. |
 | `search.json` | Tracks, places, Job Bank queries, employer boards, country, pathway. Used by find_jobs, rank_jobs, job_digest. |

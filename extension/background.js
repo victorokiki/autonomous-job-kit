@@ -1,5 +1,5 @@
 /*
- * Autonomous Autofill - service worker.
+ * Autonomous Job Kit Autofill - service worker.
  *
  * - Alt+Shift+F (command "fill-page") and the popup's "Fill this page" both call fillTab():
  *   it injects the content scripts into frames that do not have them yet (activeTab +
@@ -34,7 +34,7 @@ async function fillTab(tabId, trigger) {
   try {
     probe = await frameHasKit(tabId);
   } catch (e) {
-    return { error: 'Autonomous cannot run on this page (browser pages, the Web Store and PDF viewers are off limits).' };
+    return { error: 'Autonomous Job Kit cannot run on this page (browser pages, the Web Store and PDF viewers are off limits).' };
   }
   const missing = probe.filter((r) => !r.result).map((r) => r.frameId);
   if (missing.length) {

@@ -1,7 +1,7 @@
-# Autonomous Autofill
+# Autonomous Job Kit Autofill
 
 A Chrome / Edge extension (Manifest V3) that fills job application forms from your
-Autonomous `profile.json`. It never submits a form, never clicks Next, and never changes
+Autonomous Job Kit `profile.json`. It never submits a form, never clicks Next, and never changes
 a field that already has an answer.
 
 ## Install (Load unpacked)

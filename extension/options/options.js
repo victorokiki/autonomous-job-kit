@@ -1,5 +1,5 @@
 /*
- * Autonomous Autofill - options page (profile editor).
+ * Autonomous Job Kit Autofill - options page (profile editor).
  *
  * Builds the form from JobKit.schema (shared/profile-schema.js), loads the profile from
  * chrome.storage.local, and saves it back with schema.applyFormValues() so keys this page does

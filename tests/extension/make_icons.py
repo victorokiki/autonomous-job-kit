@@ -1,4 +1,4 @@
-"""Generate the Autonomous Autofill toolbar icons (a white "JK" on a blue rounded square).
+"""Generate the Autonomous Job Kit Autofill toolbar icons (a white "JK" on a blue rounded square).
 
 Usage:  python3 tests/extension/make_icons.py
 Writes extension/icons/icon16.png, icon32.png, icon48.png and icon128.png using only the

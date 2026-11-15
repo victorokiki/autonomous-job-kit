@@ -1,5 +1,5 @@
 /*
- * Autonomous Autofill - what the user (and Claude) sees on the page.
+ * Autonomous Job Kit Autofill - what the user (and Claude) sees on the page.
  *
  *  - Page button "Fill with Autonomous" (right edge). Only a trusted click (event.isTrusted) starts
  *    a fill, so page scripts cannot trigger it.
@@ -84,7 +84,7 @@
     if (!show) { if (button) { button.remove(); button = null; } return; }
     if (button && button.isConnected) return;
     var w = wrapNode();
-    button = el('button', { type: 'button', 'class': 'btn-fill', title: 'Fill this form from your Autonomous profile (Alt+Shift+F). Nothing is submitted.' });
+    button = el('button', { type: 'button', 'class': 'btn-fill', title: 'Fill this form from your Autonomous Job Kit profile (Alt+Shift+F). Nothing is submitted.' });
     button.appendChild(el('span', { 'class': 'mark', 'aria-hidden': 'true' }, 'JK'));
     button.appendChild(el('span', null, 'Fill with Autonomous'));
     button.addEventListener('click', function (e) {
@@ -180,10 +180,10 @@
   function showPanel(res, message) {
     var w = wrapNode();
     if (panel) panel.remove();
-    panel = el('section', { 'class': 'panel', role: 'region', 'aria-label': 'Autonomous report' });
+    panel = el('section', { 'class': 'panel', role: 'region', 'aria-label': 'Autonomous Job Kit report' });
     var head = el('div', { 'class': 'head' });
-    head.appendChild(el('h2', null, message ? 'Autonomous' : 'Autonomous filled this page'));
-    var close = el('button', { type: 'button', 'class': 'close', 'aria-label': 'Close Autonomous report' }, '×');
+    head.appendChild(el('h2', null, message ? 'Autonomous Job Kit' : 'Autonomous Job Kit filled this page'));
+    var close = el('button', { type: 'button', 'class': 'close', 'aria-label': 'Close Autonomous Job Kit report' }, '×');
     close.addEventListener('click', function () { panel.remove(); panel = null; if (button) { button.hidden = false; button.focus(); } });
     head.appendChild(close);
     panel.appendChild(head);
@@ -211,7 +211,7 @@
         return li;
       }));
       body.appendChild(list('Already filled (not changed)', res.already, false, '', function (i) { return el('li', null, i.label); }));
-      body.appendChild(el('p', { 'class': 'note' }, 'Nothing was submitted. Green outline = filled by Autonomous, dashed amber = left for you. Check every answer before you continue.'));
+      body.appendChild(el('p', { 'class': 'note' }, 'Nothing was submitted. Green outline = filled by Autonomous Job Kit, dashed amber = left for you. Check every answer before you continue.'));
     }
     panel.appendChild(body);
     w.appendChild(panel);

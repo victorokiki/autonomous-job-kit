@@ -11,11 +11,11 @@ Load this before your first form of the session. Batch filling subagents get onl
 
 ## Browser setup
 
-- Use Claude in Chrome in Google Chrome (the user's own browser). If the tab group keeps vanishing or the tab is lost after each action (Edge does this), say so once and switch to Claude's built-in browser, which cannot upload files or press Autonomous Autofill's button.
+- Use Claude in Chrome in Google Chrome (the user's own browser). If the tab group keeps vanishing or the tab is lost after each action (Edge does this), say so once and switch to Claude's built-in browser, which cannot upload files or press Autonomous Job Kit Autofill's button.
 - **Lost tab group** (errors saying the session's group no longer exists, or that a tab isn't in Claude's group): don't restart the form. Call `tabs_context_mcp` with `createIfEmpty` to get a new group, load the application URL in a fresh tab and resume from application-record.md; a fresh sign-in may be needed. Batch subagents follow their prompt instead (batch.md).
 - **Frames.** If `find` and `read_page` can't see the fields, the form sits in a frame. Before anything else, load the frame's own URL in the tab: for Greenhouse the embed URL (`job-boards.greenhouse.io/embed/job_app?...`), or the iCIMS page URL with `in_iframe=1` appended.
 
-## Autonomous Autofill
+## Autonomous Job Kit Autofill
 
 The extension adds a small fixed **Fill with Autonomous** button on the right edge of pages that hold a form (supported application systems; elsewhere the user can use the popup's "Fill this page" or Alt+Shift+F). It fills predictable fields from the profile the user imported, outlines what it filled in solid green and what it left in dashed amber, never overwrites a field that already has a value, never ticks consent boxes, never fills open-ended text unless a saved answer matches, and never clicks Next or Submit. Running it twice is harmless.
 

@@ -1,5 +1,5 @@
 /*
- * Autonomous Autofill - toolbar popup: "Fill this page", "Edit profile" and a short status.
+ * Autonomous Job Kit Autofill - toolbar popup: "Fill this page", "Edit profile" and a short status.
  * The fill itself runs in the service worker (background.js fillTab) so the popup can close early.
  */
 (function () {

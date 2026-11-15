@@ -1,4 +1,4 @@
-# Autonomous Autofill privacy notice
+# Autonomous Job Kit Autofill privacy notice
 
 **Short version: your data stays in your browser. The extension makes no network requests.**
 

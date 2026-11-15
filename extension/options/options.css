@@ -1,4 +1,4 @@
-/* Autonomous Autofill - options page layout. Colours come from ../shared/theme.css. */
+/* Autonomous Job Kit Autofill - options page layout. Colours come from ../shared/theme.css. */
 .skip { position: absolute; left: -999px; top: 8px; background: var(--surface); padding: 8px 12px; border-radius: 8px; z-index: 10; }
 .skip:focus { left: 8px; }
 

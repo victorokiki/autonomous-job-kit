@@ -1,5 +1,5 @@
 /*
- * Autonomous Autofill - fixture harness.
+ * Autonomous Job Kit Autofill - fixture harness.
  *
  * Each tests/extension/fixture-*.html loads this file. It installs a stub `chrome` object with a
  * made-up profile, loads the real content scripts from ../../extension/content/, runs a fill

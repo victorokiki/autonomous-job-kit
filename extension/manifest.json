@@ -1,9 +1,9 @@
 {
   "manifest_version": 3,
-  "name": "Autonomous Autofill",
+  "name": "Autonomous Job Kit Autofill",
   "short_name": "Autonomous",
   "version": "2.0.0",
-  "description": "Fills job application forms from your Autonomous profile. Never submits; leaves sensitive and open questions for you.",
+  "description": "Fills job application forms from your Autonomous Job Kit profile. Never submits; leaves sensitive and open questions for you.",
   "minimum_chrome_version": "110",
   "permissions": [
     "storage",
@@ -33,7 +33,7 @@
     "service_worker": "background.js"
   },
   "action": {
-    "default_title": "Autonomous Autofill",
+    "default_title": "Autonomous Job Kit Autofill",
     "default_popup": "popup/popup.html",
     "default_icon": {
       "16": "icons/icon16.png",

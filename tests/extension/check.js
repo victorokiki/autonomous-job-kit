@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /*
- * Autonomous Autofill - checks that run without a browser extension install.
+ * Autonomous Job Kit Autofill - checks that run without a browser extension install.
  *
  * Usage (from the repo root):  node tests/extension/check.js [--no-browser]
  *

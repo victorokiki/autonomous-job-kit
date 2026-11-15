@@ -1,5 +1,5 @@
 /*
- * Autonomous Autofill - matching rules (pure functions, no DOM).
+ * Autonomous Job Kit Autofill - matching rules (pure functions, no DOM).
  *
  * decide(question, profile, env) returns what to put in one form control:
  *   { ok: true,  rule: 'email', want: {...} }       fill it

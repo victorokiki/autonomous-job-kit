@@ -142,7 +142,7 @@
       fields: [
         { key: 'salary', label: 'Salary expectation' },
         { key: 'startDate', label: 'Earliest start date' },
-        { key: 'workPreference', label: 'Work arrangement preference', help: 'e.g. Hybrid or remote.' },
+        { key: 'workPreference', label: 'Work arrangement preference', help: 'e.g. Hybrid, Remote, or "Open to remote, hybrid or on-site" (picks a flexible option, then on-site).' },
         { key: 'yearsExperience', label: 'Years of experience' },
         { key: 'skills', label: 'Skills', help: 'Comma-separated.' },
         { key: 'summary', label: 'Short summary', type: 'textarea' }

@@ -101,6 +101,7 @@
         out.push({ text: want.value, aliases: [T.formatDate(want.value, 'monthName') + ' ' + (p ? p.y : '')] });
       }
     } else {
+      (want.matchers || []).forEach(function (m) { out.push({ matcher: m }); });
       out.push({ text: want.text, aliases: want.aliases, number: want.number, prefer: want.prefer });
     }
     return out;

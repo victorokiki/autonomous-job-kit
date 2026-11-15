@@ -204,13 +204,44 @@ const CASES = [
   ['Earliest start date', 'text', 'available from', { context: 'education and availability' }],
   ['Will you require sponsorship for this co-op work term?', 'radio', 'sponsorship'],
   ['Will you now or in the future require sponsorship for a visa to remain in your current location?', 'combobox', 'sponsorship'],
-  ['Current location', 'combobox', 'location']
+  ['Current location', 'combobox', 'location'],
+  ['Are you currently located in the United States or Canada?', 'combobox', 'located in country'],
+  ['Do you live in the United Kingdom?', 'radio', 'located in country'],
+  ['Are you located in Ontario?', 'radio', 'left:not in profile'],
+  ['Are you willing to relocate to Toronto?', 'radio', 'relocation'],
+  ["What's the name you'd prefer us to use throughout the interview process?", 'text', 'preferred name'],
+  ['Have you previously worked at or consulted for GitLab?', 'combobox', 'worked here before'],
+  ['Have you ever worked for us before?', 'radio', 'left:not in profile'],
+  ['Have you previously applied to Northwind?', 'radio', 'left:unknown question'],
+  ['Preferred work arrangement', 'select', 'work arrangement'],
+  ['Preferred start date', 'text', 'start date']
 ];
 CASES.forEach(([text, control, want, extra]) => {
   const d = R.decide(q(text, control, extra), profile, {});
   const got = d.ok ? d.rule : 'left:' + d.reason;
   if (got === want) ok('rule: "' + text + '" -> ' + want);
   else fail('rule: "' + text + '"', 'expected ' + want + ', got ' + got);
+});
+test('located-in answers yes for a listed country and no otherwise', () => {
+  const yes = R.decide(q('Are you currently located in the United States or Canada?', 'combobox'), profile, {});
+  const no = R.decide(q('Are you based in the United Kingdom?', 'radio'), profile, {});
+  assert.strictEqual(yes.want.value, 'yes');
+  assert.strictEqual(no.want.value, 'no');
+});
+test('worked-here answers from the work history', () => {
+  const no = R.decide(q('Have you previously worked at or consulted for GitLab?', 'combobox'), profile, {});
+  const yes = R.decide(q('Have you previously worked for Harbourline Logistics?', 'radio'), profile, {});
+  assert.strictEqual(no.want.value, 'no');
+  assert.strictEqual(yes.want.value, 'yes');
+});
+test('open-to-all work arrangement prefers a flexible option, then on-site', () => {
+  const P = Object.assign({}, profile, { workPreference: 'Open to remote, hybrid or on-site' });
+  const d = R.decide(q('Preferred work arrangement', 'select'), P, {});
+  const pick = (opts) => d.want.matchers.findIndex((m) => opts.some(m));
+  assert.strictEqual(d.rule, 'work arrangement');
+  assert.ok(d.want.matchers[0]('No preference'));
+  assert.ok(d.want.matchers[1]('On-site') && !d.want.matchers[1]('Remote'));
+  assert.strictEqual(pick(['Remote', 'Hybrid', 'On-site']), 1);
 });
 test('phone splits when the form has a country-code field', () => {
   const d = R.decide(q('Phone number'), profile, { hasPhoneCode: true });

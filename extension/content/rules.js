@@ -119,6 +119,41 @@
     return yesno(p.workAuthorized, p.workAuthDetails);
   }
 
+  /* ---- "Have you previously worked at or consulted for GitLab?": yes when that employer is in the work history ---- */
+  var COMPANY_NOISE = /\b(inc|incorporated|llc|ltd|limited|corp|corporation|co|company|plc|group|holdings|technologies|technology|the)\b/g;
+  function companyKey(name) { return T.norm(name).replace(COMPANY_NOISE, ' ').replace(/\s+/g, ' ').trim(); }
+  function workedHere(p, q) {
+    var label = ' ' + T.norm(q.text) + ' ';
+    var mine = (Array.isArray(p.work) ? p.work : []).map(function (w) { return companyKey(w && w.company); }).filter(function (k) { return k.length >= 3; });
+    for (var i = 0; i < mine.length; i++) { if (label.indexOf(' ' + mine[i] + ' ') !== -1) return yesno('yes'); }
+    // Only answer "no" when the question names the employer ("at GitLab"), not "for us" or "this company".
+    var m = String(q.text || '').match(/\b(?:at|for|with|by)\s+(?:or (?:consulted|worked|interned) (?:at|for)\s+)?([A-Z][\w&.'-]*(?:\s+[A-Z][\w&.'-]*)*)/);
+    if (!m || /^(Us|This|The|Our|Any|A)$/.test(m[1].split(/\s+/)[0])) return null;
+    return yesno('no');
+  }
+
+  /* ---- work arrangement: "open to all" picks a flexible option first, then on-site, then hybrid ---- */
+  function workArrangement(p) {
+    var w = s(p.workPreference);
+    if (!w) return null;
+    if (!/\b(open|any|flexible|all|no preference|either)\b/i.test(w)) return text(w);
+    var want = text(w);
+    want.matchers = [
+      function (t) { return /\b(open to (any|all)|flexible|no preference|any of|all of|either|any arrangement)\b/.test(T.norm(t)); },
+      function (t) { return /\b(on ?site|in office|in person|office based)\b/.test(T.norm(t)) && !/\bremote\b/.test(T.norm(t)); },
+      function (t) { return /\bhybrid\b/.test(T.norm(t)); }
+    ];
+    return want;
+  }
+
+  /* ---- "Are you currently located in the United States or Canada?": yes when the user's country is named ---- */
+  function locatedIn(p, q) {
+    var mentioned = T.countriesMentioned(q.text);
+    var mine = T.findCountry(p.country);
+    if (!mentioned.length || !mine) return null;
+    return yesno(mentioned.indexOf(mine.code) !== -1 ? 'yes' : 'no');
+  }
+
   function dateOf(item, exactKey, key) { return date(s(item[exactKey]) || s(item[key])); }
 
   /*
@@ -151,7 +186,7 @@
     { id: 'email', self: true, hint: true, re: /\be ?mail\b/, not: /\b(subscribe|newsletter|updates|alerts)\b/, get: function (p) { return text(p.email); } },
 
     // --- names ---
-    { id: 'preferred name', self: true, hint: true, re: /\b(preferred|nick ?name|known as|chosen|goes by)\b/, not: /\b(pronoun|location|language|contact method)\b/,
+    { id: 'preferred name', self: true, hint: true, re: /\b(preferred|nick ?name|known as|chosen|goes by)\b|\bname\b.*\b(prefer|like us to (use|call))\b|\bprefer\w* to be called\b/, not: /\b(pronoun|location|language|contact method|work|arrangement|shift|schedule|start|salary|pay|method|time|hours|setting|environment)\b/,
       get: function (p) { return text(s(p.preferredName) || s(p.firstName)); } },
     { id: 'middle name', self: true, hint: true, re: /\bmiddle (name|initial)\b|^middle$/, get: function (p, q) { var m = s(p.middleName); if (/initial/.test(q.label)) m = m.charAt(0); return text(m); } },
     { id: 'first name', self: true, hint: true, re: /\b(first|given|fore) ?name\b|^first$|^fname$/, not: /\blast\b|\bpreferred\b/, get: function (p) { return text(p.firstName); } },
@@ -222,6 +257,10 @@
     { id: 'permit expiry', re: /\b(permit|visa|authori[sz]ation|status)\b.*\b(expir\w*|end date|valid until|valid through)\b/, get: function (p) { return date(p.permitExpiry); } },
     { id: 'work status', re: /\b(work|immigration|visa|residency|employment|citizenship|legal) status\b|\bwork permit (type|status)\b|\bstatus in (canada|the united states|the us|the uk|the united kingdom)\b/,
       get: function (p) { return text(p.workAuthDetails); } },
+    { id: 'worked here before', re: /\b(previously|ever|before|formerly|in the past)\b.*\b(work\w*|employed|consult\w*|intern\w*|contract\w*)\b|\b(work\w*|employed|consult\w*)\b.*\b(previously|before|in the past)\b|\bformer (employee|intern|contractor)\b/,
+      not: /\b(apply|applied|interview\w*|relative|family|government)\b/, get: workedHere },
+    { id: 'located in country', re: /^(are|do) you (currently |presently |now )?(located|based|living|live|reside|residing)\b/, not: /\breloca\w*|\bwilling\b/,
+      get: locatedIn },
     { id: 'relocation', re: /\breloca\w*\b/, get: function (p) { return yesno(p.willingToRelocate); } },
     { id: 'government relative', re: /\b(relative|family|related|household|immediate family)\b.*\b(government|public (official|servant|sector|office)|official)\b|\b(government|public official)\b.*\b(relative|family|related)\b/,
       get: function (p) { return yesno(p.governmentRelative); } },
@@ -231,7 +270,7 @@
     // --- job details ---
     { id: 'salary', re: /\b(salary|compensation|pay (expectation|range|requirement)s?|expected (pay|wage|rate)|desired (pay|wage|rate)|hourly rate|wage)\b/, get: function (p) { return text(p.salary); } },
     { id: 'work arrangement', re: /\b(work (arrangement|preference|model|setting|style|location preference)|workplace type|remote or (on site|hybrid)|preferred work (location|arrangement|environment))\b/,
-      get: function (p) { return text(p.workPreference); } },
+      get: workArrangement },
     { id: 'skills', re: /^(key |technical |relevant )?skills$/, get: function (p) { return text(p.skills); } },
 
     // --- voluntary self-identification (most specific first) ---

@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Fixture: generic application form</title>
+<style>
+  body { font: 14px system-ui, sans-serif; max-width: 720px; margin: 24px auto; padding: 0 16px; }
+  .row { margin: 12px 0; } .q { font-weight: 600; }
+  input[type=text], input[type=email], select, textarea { width: 100%; padding: 6px; }
+  pre { background: #f3f3f3; padding: 12px; white-space: pre-wrap; }
+</style>
+</head>
+<body>
+<h1>Junior Analyst (fixture)</h1>
+<form id="generic" action="javascript:void(0)">
+  <h2>About you</h2>
+  <div class="row"><label>First name <input type="text" name="a1" data-expect="Alex"></label></div>
+  <div class="row"><span id="ln-l">Surname</span> <input type="text" aria-labelledby="ln-l" data-expect="Tremblay"></div>
+  <div class="row"><input type="email" placeholder="Email address" data-expect="alex.tremblay@example.com"></div>
+  <div class="row"><input type="text" aria-label="Mobile phone" data-expect="+1 (902) 555-0142"></div>
+  <div class="row"><div class="q">Street address</div><div><input type="text" name="addr" data-expect="123 Example Street" data-name="preceding-text label"></div></div>
+  <div class="row"><jk-city-field></jk-city-field></div>
+  <div class="row"><label for="prov">Province</label>
+    <select id="prov" data-expect="NS"><option value="">--</option><option>AB</option><option>NS</option><option>ON</option></select></div>
+  <div class="row"><input type="text" name="postal_code" data-expect="B3H 0A1" data-name="id/name hint only"></div>
+  <div class="row"><label for="ctry">Country of residence</label>
+    <select id="ctry" data-expect="Canada"><option value="">Choose one</option><option value="US">United States of America</option><option value="CA">Canada</option><option value="GB">United Kingdom</option></select></div>
+  <div class="row"><label for="sin">Social Insurance Number (SIN)</label><input type="text" id="sin" data-expect="" data-name="SIN left alone"></div>
+  <div class="row"><label for="dob">Date of birth</label><input type="date" id="dob" data-expect="" data-name="date of birth left alone"></div>
+  <div class="row"><label for="manager_name">Manager's first name</label><input type="text" id="manager_name" data-expect="" data-name="someone else's name left alone"></div>
+
+  <h2>Education and availability</h2>
+  <div class="row"><label for="grad">Expected graduation date</label><input type="date" id="grad" data-expect="2023-04-28"></div>
+  <div class="row"><label for="gpa">GPA</label><input type="text" id="gpa" data-expect="3.7"></div>
+  <div class="row"><label for="start">Earliest start date</label><input type="date" id="start" data-expect="2026-01-05"></div>
+  <div class="row"><label for="yoe">Years of relevant experience</label>
+    <select id="yoe" data-expect="2-3 years"><option value="">Select</option><option>0-1 years</option><option>2-3 years</option><option>4+ years</option></select></div>
+
+  <h2>Eligibility</h2>
+  <fieldset data-expect="Yes" data-name="authorization radios (fieldset legend)"><legend>Are you eligible to work in Canada?</legend>
+    <label><input type="radio" name="elig" value="y"> Yes</label> <label><input type="radio" name="elig" value="n"> No</label></fieldset>
+  <fieldset data-expect="No" data-name="internship sponsorship radios"><legend>Will you require sponsorship for the duration of this co-op work term?</legend>
+    <label><input type="radio" name="spon" value="y"> Yes</label> <label><input type="radio" name="spon" value="n"> No</label></fieldset>
+  <fieldset data-expect="No" data-name="government employee radios"><legend>Are you a current or former government employee?</legend>
+    <label><input type="radio" name="gov" value="y"> Yes</label> <label><input type="radio" name="gov" value="n"> No</label></fieldset>
+  <div class="row"><label><input type="checkbox" name="reloc" data-expect="checked"> I am willing to relocate</label></div>
+
+  <h2>Self-identification</h2>
+  <fieldset><legend>Race (select all that apply)</legend>
+    <label><input type="checkbox" name="race" value="asian" data-expect="unchecked"> Asian</label>
+    <label><input type="checkbox" name="race" value="black" data-expect="unchecked"> Black</label>
+    <label><input type="checkbox" name="race" value="white" data-expect="checked"> White</label></fieldset>
+
+  <h2>Tell us more</h2>
+  <div class="row"><label for="about">Tell us about yourself</label><textarea id="about" data-expect="" data-name="textarea left alone"></textarea></div>
+  <div class="row"><label for="hear">How did you hear about us?</label><textarea id="hear" data-expect="Company careers page" data-name="textarea with a saved answer"></textarea></div>
+  <div class="row"><label><input type="checkbox" id="cert" data-expect="unchecked" data-name="certification left unticked"> I certify that the information above is true and complete.</label></div>
+  <button type="submit">Next</button>
+</form>
+<pre id="jk-results">running…</pre>
+<script>
+  // A web component with an open shadow root (some systems build fields this way).
+  customElements.define('jk-city-field', class extends HTMLElement {
+    constructor() {
+      super();
+      this.attachShadow({ mode: 'open' }).innerHTML = '<label for="c">City</label> <input type="text" id="c">';
+    }
+  });
+  window.JK_EXTRA_CHECKS = [
+    function () { var i = document.querySelector('jk-city-field').shadowRoot.querySelector('input'); return ['shadow DOM city filled', i.value === 'Halifax', i.value]; },
+    function (r, text) { return ['report mentions SIN as sensitive', /Social Insurance Number \(SIN\) \(text, sensitive/.test(text), '']; }
+  ];
+</script>
+<script src="harness.js"></script>
+</body>
+</html>

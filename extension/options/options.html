@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Job Kit Autofill profile</title>
+  <link rel="stylesheet" href="../shared/theme.css">
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <a class="skip" href="#editor">Skip to the profile form</a>
+  <header class="top">
+    <div class="brand">
+      <img src="../icons/icon48.png" alt="" width="32" height="32">
+      <div>
+        <h1>Job Kit Autofill</h1>
+        <p class="sub">Your answers for job application forms. Stored only in this browser.</p>
+      </div>
+    </div>
+    <div class="file-actions">
+      <button type="button" id="import-btn">Import profile.json</button>
+      <input type="file" id="import-file" accept="application/json,.json" class="visually-hidden" tabindex="-1" aria-hidden="true">
+      <button type="button" id="export-btn">Download profile.json</button>
+    </div>
+  </header>
+
+  <div class="layout">
+    <nav class="toc" aria-label="Profile sections">
+      <ul id="toc"></ul>
+    </nav>
+
+    <main id="editor" tabindex="-1">
+      <section class="card" aria-labelledby="settings-h">
+        <h2 id="settings-h">Page button and resume</h2>
+        <div class="switch-row">
+          <input type="checkbox" id="show-button" role="switch">
+          <label for="show-button">Show the "Fill with Job Kit" button on application pages</label>
+        </div>
+        <p class="help">With the button hidden you can still fill a page from the toolbar menu or with Alt+Shift+F.</p>
+
+        <div class="resume" aria-describedby="resume-help">
+          <h3>Resume PDF</h3>
+          <p id="resume-status" class="resume-status">No resume saved.</p>
+          <div class="row-actions">
+            <button type="button" id="resume-btn">Choose PDF…</button>
+            <input type="file" id="resume-file" accept="application/pdf,.pdf" class="visually-hidden" tabindex="-1" aria-hidden="true">
+            <button type="button" id="resume-remove" class="danger" hidden>Remove resume</button>
+          </div>
+          <p id="resume-help" class="help">Uploaded into file fields labelled Resume or CV. Up to 5 MB. Cover letter fields are left for you.</p>
+        </div>
+      </section>
+
+      <form id="profile-form" novalidate>
+        <div id="sections"></div>
+      </form>
+    </main>
+  </div>
+
+  <footer class="savebar" role="region" aria-label="Save">
+    <p id="status" role="status" aria-live="polite"></p>
+    <button type="button" id="save-btn" class="primary">Save profile</button>
+  </footer>
+
+  <script src="../shared/profile-schema.js"></script>
+  <script src="options.js"></script>
+</body>
+</html>

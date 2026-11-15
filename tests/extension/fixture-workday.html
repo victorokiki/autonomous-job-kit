@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Fixture: Workday-like form</title>
+<style>
+  body { font: 14px system-ui, sans-serif; max-width: 720px; margin: 24px auto; padding: 0 16px; }
+  [data-automation-id^=formField] { margin: 12px 0; } label { display: block; font-weight: 600; }
+  input[type=text] { width: 100%; padding: 6px; }
+  .wd { position: relative; } .wd button { min-width: 220px; text-align: left; padding: 6px; }
+  [role=listbox] { border: 1px solid #999; background: #fff; margin: 0; padding: 0; list-style: none; } [role=option] { padding: 4px; cursor: pointer; }
+  pre { background: #f3f3f3; padding: 12px; white-space: pre-wrap; }
+</style>
+</head>
+<body>
+<h1>Analyst Co-op (fixture)</h1>
+<div data-automation-id="applyFlowPage">
+  <div data-automation-id="contactInformationPage">
+    <h2>My Information</h2>
+    <div data-automation-id="formField-countryDropdown"><label id="country-l">Country *</label>
+      <div class="wd" data-options="Canada|United Kingdom|United States of America">
+        <button type="button" aria-haspopup="listbox" aria-labelledby="country-l" aria-controls="country-list" data-expect="Canada" data-name="country listbox">Select One</button>
+        <ul role="listbox" id="country-list" hidden></ul></div></div>
+    <div data-automation-id="formField-legalNameSection_firstName"><label for="wd-fn">Given Name(s) *</label>
+      <input type="text" id="wd-fn" data-automation-id="legalNameSection_firstName" data-controlled="wdFirst" data-expect="Alex"></div>
+    <div data-automation-id="formField-legalNameSection_lastName"><label for="wd-ln">Family Name *</label>
+      <input type="text" id="wd-ln" data-automation-id="legalNameSection_lastName" data-expect="Tremblay"></div>
+    <div data-automation-id="formField-addressLine1"><label for="wd-a1">Address Line 1 *</label>
+      <input type="text" id="wd-a1" data-automation-id="addressSection_addressLine1" data-expect="123 Example Street"></div>
+    <div data-automation-id="formField-addressLine2"><label for="wd-a2">Address Line 2</label>
+      <input type="text" id="wd-a2" data-automation-id="addressSection_addressLine2" data-expect=""></div>
+    <div data-automation-id="formField-city"><label for="wd-city">City *</label>
+      <input type="text" id="wd-city" data-automation-id="addressSection_city" data-expect="Halifax"></div>
+    <div data-automation-id="formField-countryRegion"><label id="prov-l">Province or Territory *</label>
+      <div class="wd" data-options="Alberta|British Columbia|New Brunswick|Nova Scotia|Ontario">
+        <button type="button" aria-haspopup="listbox" aria-labelledby="prov-l" aria-controls="prov-list" data-expect="Nova Scotia" data-name="province listbox">Select One</button>
+        <ul role="listbox" id="prov-list" hidden></ul></div></div>
+    <div data-automation-id="formField-postalCode"><label for="wd-pc">Postal Code *</label>
+      <input type="text" id="wd-pc" data-automation-id="addressSection_postalCode" data-expect="B3H 0A1"></div>
+    <div data-automation-id="formField-phoneType"><label id="ptype-l">Phone Device Type *</label>
+      <div class="wd" data-options="Home|Mobile|Work">
+        <button type="button" aria-haspopup="listbox" aria-labelledby="ptype-l" aria-controls="ptype-list" data-expect="Select One" data-name="phone device type left">Select One</button>
+        <ul role="listbox" id="ptype-list" hidden></ul></div></div>
+    <div data-automation-id="formField-countryPhoneCode"><label id="pcode-l">Country Phone Code *</label>
+      <div class="wd" data-options="United Kingdom (+44)|Canada (+1)|United States of America (+1)">
+        <button type="button" aria-haspopup="listbox" aria-labelledby="pcode-l" aria-controls="pcode-list" data-expect="Canada (+1)" data-name="phone code listbox">Select One</button>
+        <ul role="listbox" id="pcode-list" hidden></ul></div></div>
+    <div data-automation-id="formField-phoneNumber"><label for="wd-ph">Phone Number *</label>
+      <input type="text" id="wd-ph" data-automation-id="phone-number" data-expect="(902) 555-0142" data-name="phone number without country code"></div>
+    <div data-automation-id="formField-dateOfBirth"><label for="wd-dob">Date of Birth</label>
+      <input type="text" id="wd-dob" data-expect="" data-name="date of birth left"></div>
+  </div>
+
+  <div data-automation-id="workExperienceSection">
+    <h3>Work Experience 1</h3>
+    <div data-automation-id="formField-jobTitle"><label for="we-title">Job Title *</label><input type="text" id="we-title" data-expect="Data Analyst"></div>
+    <div data-automation-id="formField-companyName"><label for="we-co">Company *</label><input type="text" id="we-co" data-expect="Harbourline Logistics"></div>
+    <div data-automation-id="formField-location"><label for="we-loc">Location</label><input type="text" id="we-loc" data-expect="Halifax, NS"></div>
+    <div data-automation-id="formField-startDate"><label for="we-from">From *</label><input type="text" id="we-from" placeholder="MM/YYYY" data-expect="06/2024"></div>
+  </div>
+  <div data-automation-id="educationSection">
+    <h3>Education 1</h3>
+    <div data-automation-id="formField-school"><label for="ed-school">School or University *</label><input type="text" id="ed-school" data-expect="Atlantic Coast University"></div>
+    <div data-automation-id="formField-degree"><label id="deg-l">Degree *</label>
+      <div class="wd" data-options="High School Diploma|Bachelor's Degree|Master's Degree">
+        <button type="button" aria-haspopup="listbox" aria-labelledby="deg-l" aria-controls="deg-list" data-expect="Bachelor's Degree" data-name="degree listbox">Select One</button>
+        <ul role="listbox" id="deg-list" hidden></ul></div></div>
+    <div data-automation-id="formField-firstYearAttended"><label for="ed-from">From (Year)</label><input type="text" id="ed-from" data-expect="2019"></div>
+    <div data-automation-id="formField-lastYearAttended"><label for="ed-to">To (Actual or Expected Year)</label><input type="text" id="ed-to" data-expect="2023"></div>
+  </div>
+
+  <div data-automation-id="applicationQuestionsPage">
+    <h3>Application Questions</h3>
+    <div data-automation-id="formField-q1"><label id="q1-l">Are you legally authorized to work in Canada? *</label>
+      <div class="wd" id="auth-wd" data-options="Yes|No">
+        <button type="button" aria-haspopup="listbox" aria-labelledby="q1-l" aria-controls="q1-list" data-expect="Yes" data-name="authorization listbox">Select One</button>
+        <ul role="listbox" id="q1-list" hidden></ul></div></div>
+    <div id="followup"></div>
+    <div data-automation-id="formField-q2"><label id="q2-l">Do you require visa sponsorship? *</label>
+      <div class="wd" data-options="Yes|No">
+        <button type="button" aria-haspopup="listbox" aria-labelledby="q2-l" aria-controls="q2-list" data-expect="No" data-name="ambiguous sponsorship (answers agree)">Select One</button>
+        <ul role="listbox" id="q2-list" hidden></ul></div></div>
+  </div>
+</div>
+<pre id="jk-results">running…</pre>
+<script>
+  // Workday-style follow-up: answering "Yes" reveals a new question (filled in the second pass).
+  document.getElementById('auth-wd').addEventListener('widget-change', function (e) {
+    if (e.detail === 'Yes' && !document.getElementById('wd-status')) {
+      document.getElementById('followup').innerHTML = '<div data-automation-id="formField-q1b"><label for="wd-status">What is your current work status?</label>' +
+        '<input type="text" id="wd-status" data-expect="Canadian citizen" data-name="follow-up field (second pass)"></div>';
+    }
+  });
+  window.JK_EXTRA_CHECKS = [
+    function () { return ['controlled first name kept', window.JK_STATE.wdFirst === 'Alex', 'state: ' + window.JK_STATE.wdFirst]; },
+    function () { var el = document.getElementById('wd-status'); return ['follow-up filled', !!el && el.value === 'Canadian citizen', el ? el.value : 'missing']; }
+  ];
+</script>
+<script src="widgets.js"></script>
+<script src="harness.js"></script>
+</body>
+</html>

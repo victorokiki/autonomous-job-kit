@@ -1,0 +1,71 @@
+% FICTIONAL tailored resume used by tests/test_resume_pipeline.py (made from templates/master-resume.tex).
+\documentclass[11pt,letterpaper]{article}
+\usepackage[margin=0.6in]{geometry}
+\usepackage[T1]{fontenc}
+% "lining" matters: without it Carlito's old-style digits can vanish from the PDF text that tracking systems read.
+\usepackage[sfdefault,lining]{carlito}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage[hidelinks]{hyperref}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\raggedright
+
+% Capitalised section headings with a rule under them
+\titleformat{\section}{\large\bfseries\uppercase}{}{0pt}{}[\vspace{-0.6em}\rule{\linewidth}{0.4pt}]
+\titlespacing*{\section}{0pt}{0.9em}{0.4em}
+\setlist[itemize]{leftmargin=1.2em, itemsep=1pt, topsep=2pt, parsep=0pt}
+
+% \entry{Title}{Employer | City, Province | Type | Mon YYYY -- Mon YYYY}
+\newcommand{\entry}[2]{\textbf{#1}\\\textit{#2}\par}
+
+\begin{document}
+
+\begin{center}
+  {\LARGE\bfseries ALEX MORGAN TREMBLAY}\\[2pt]
+  Data Analysis \textbar{} Reporting Automation \textbar{} Operations Support\\[2pt]
+  Halifax, NS \textbar{} +1 (902) 555-0142 \textbar{} alex.tremblay@example.com \textbar{} linkedin.com/in/alex-tremblay-example
+\end{center}
+
+\section{Professional Summary}
+Data analyst with two years of experience building SQL and Python reporting for logistics operations, from weekly
+shipment reports to Power BI dashboards for regional managers.
+
+\section{Core Skills}
+\begin{itemize}
+  \item \textbf{Data:} Python (pandas), SQL (PostgreSQL), Excel (Power Query, pivot tables), Power BI
+  \item \textbf{Tools:} Git, Jira, Salesforce, Google Sheets
+  \item \textbf{Languages:} English (fluent), French (intermediate)
+\end{itemize}
+
+\section{Experience}
+\entry{Data Analyst}{Harbourline Logistics | Halifax, NS | Full-time | Jun 2024 -- Present}
+\begin{itemize}
+  \item Automated weekly shipment reporting with Python and SQL data pulls, cutting the work from 6 hours to 40 minutes.
+  \item Reduced duplicate customer records by 25\% by writing validation rules for a 120,000-row CRM migration.
+  \item Built a Power BI dashboard used by 4 regional managers to track on-time delivery each week.
+\end{itemize}
+
+\entry{Operations Assistant}{Bluenose Outfitters | Dartmouth, NS | Part-time | Sep 2022 -- May 2024}
+\begin{itemize}
+  \item Kept inventory counts for 900+ products accurate each month and answered 30--40 customer emails a day in English and French.
+  \item Presented quarterly findings to the executive team using Tableau.
+\end{itemize}
+
+\section{Selected Projects}
+\entry{Transit Ridership Analysis}{Personal project | Python, pandas, Matplotlib | 2024}
+\begin{itemize}
+  \item Analysed 3 years of open transit data to find the 10 busiest routes by hour and shared the notebook on GitHub.
+\end{itemize}
+
+\section{Education}
+\entry{Bachelor of Commerce, Business Analytics}{Atlantic Coast University (fictional) | Halifax, NS | Sep 2019 -- Apr 2023}
+
+\section{Certifications}
+\begin{itemize}
+  \item Microsoft Certified: Power BI Data Analyst Associate (2024)
+  \item Google Data Analytics Certificate (2023)
+\end{itemize}
+
+\end{document}

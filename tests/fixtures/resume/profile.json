@@ -1,0 +1,9 @@
+{
+  "_comment": "FICTIONAL profile for tests.",
+  "firstName": "Alex", "middleName": "Morgan", "lastName": "Tremblay",
+  "resumeName": "Alex Morgan Tremblay",
+  "email": "alex.tremblay@example.com", "phone": "+1 (902) 555-0142",
+  "city": "Halifax", "state": "NS", "country": "Canada",
+  "linkedin": "linkedin.com/in/alex-tremblay-example",
+  "resumeMaxPages": 1
+}

@@ -1,0 +1,60 @@
+/* Job Kit Autofill - options page layout. Colours come from ../shared/theme.css. */
+.skip { position: absolute; left: -999px; top: 8px; background: var(--surface); padding: 8px 12px; border-radius: 8px; z-index: 10; }
+.skip:focus { left: 8px; }
+
+.top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 24px;
+  padding: 18px 24px; background: var(--surface); border-bottom: 1px solid var(--line); }
+.brand { display: flex; align-items: center; gap: 12px; }
+.brand h1 { margin: 0; font-size: 20px; }
+.sub { margin: 0; color: var(--muted); }
+.file-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+
+.layout { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 24px; max-width: 1080px; margin: 0 auto; padding: 24px 24px 120px; }
+.toc { position: sticky; top: 16px; align-self: start; }
+.toc ul { list-style: none; margin: 0; padding: 0; }
+.toc a { display: block; padding: 6px 10px; border-radius: 8px; color: var(--fg); text-decoration: none; }
+.toc a:hover { background: var(--surface); color: var(--accent); }
+main:focus { outline: none; }
+
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px 20px 20px; margin: 0 0 20px; }
+fieldset.card { min-width: 0; }
+.card h2, .card legend { font-size: 16px; font-weight: 700; margin: 0 0 12px; padding: 0; }
+fieldset.card legend { float: left; width: 100%; }
+fieldset.card legend + * { clear: both; }
+.card h3 { font-size: 14px; margin: 16px 0 6px; }
+.intro { margin: 0 0 12px; color: var(--muted); }
+
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px 16px; }
+.field { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.field.wide { grid-column: 1 / -1; }
+.field label { font-weight: 600; }
+.field input, .field select, .field textarea {
+  width: 100%; padding: 8px 10px; border: 1px solid var(--line); border-radius: 8px; background: var(--field); color: var(--fg); font: inherit;
+}
+.field textarea { min-height: 72px; resize: vertical; }
+.field input:hover, .field select:hover, .field textarea:hover { border-color: var(--muted); }
+.help { margin: 2px 0 0; color: var(--muted); font-size: 12.5px; }
+
+.list-item { border: 1px dashed var(--line); border-radius: var(--radius); padding: 12px 14px 14px; margin: 0 0 12px; }
+.list-item-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin: 0 0 8px; }
+.list-item-head h3 { margin: 0; font-size: 14px; }
+.empty { color: var(--muted); margin: 0 0 12px; }
+
+.switch-row { display: flex; align-items: center; gap: 10px; }
+.switch-row input { width: 18px; height: 18px; accent-color: var(--accent); }
+.resume-status { margin: 0 0 8px; }
+.row-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+
+.savebar { position: fixed; left: 0; right: 0; bottom: 0; display: flex; align-items: center; justify-content: flex-end; gap: 16px;
+  padding: 12px 24px; background: var(--surface); border-top: 1px solid var(--line); }
+.savebar p { margin: 0 auto 0 0; color: var(--muted); }
+.savebar p.ok { color: var(--ok); }
+.savebar p.err { color: var(--danger); }
+.savebar p.warn { color: var(--warn); }
+
+@media (max-width: 760px) {
+  .layout { grid-template-columns: 1fr; padding: 16px 16px 120px; }
+  .toc { position: static; }
+  .toc ul { display: flex; flex-wrap: wrap; gap: 4px; }
+  .top { padding: 16px; }
+}

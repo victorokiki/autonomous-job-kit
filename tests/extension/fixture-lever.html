@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Fixture: Lever-like form</title>
+<style>
+  body { font: 14px system-ui, sans-serif; max-width: 720px; margin: 24px auto; padding: 0 16px; }
+  .application-question { margin: 12px 0; } .application-label { font-weight: 600; }
+  input[type=text], input[type=email], select, textarea { width: 100%; padding: 6px; }
+  pre { background: #f3f3f3; padding: 12px; white-space: pre-wrap; }
+</style>
+</head>
+<body>
+<h1>Data Intern (fixture)</h1>
+<form id="lever-form" action="javascript:void(0)">
+  <h4>Submit your application</h4>
+  <ul style="list-style:none;padding:0">
+    <li class="application-question"><label><div class="application-label">Resume/CV ✱</div>
+      <input type="file" name="resume" data-expect="Alex_Tremblay_Resume.pdf"></label></li>
+    <li class="application-question"><label><div class="application-label">Full name ✱</div>
+      <input type="text" name="name" data-expect="Alex Morgan Tremblay"></label></li>
+    <li class="application-question"><label><div class="application-label">Email ✱</div>
+      <input type="email" name="email" data-expect="alex.tremblay@example.com"></label></li>
+    <li class="application-question"><label><div class="application-label">Phone</div>
+      <input type="text" name="phone" data-expect="+1 (902) 555-0142"></label></li>
+    <li class="application-question"><label><div class="application-label">Current location</div>
+      <input type="text" name="location" data-expect="Halifax, NS"></label></li>
+    <li class="application-question"><label><div class="application-label">Current company</div>
+      <input type="text" name="org" data-expect="Harbourline Logistics"></label></li>
+  </ul>
+  <h4>Links</h4>
+  <ul style="list-style:none;padding:0">
+    <li class="application-question"><label><div class="application-label">LinkedIn URL</div><input type="text" name="urls[LinkedIn]" data-expect="linkedin.com/in/alex-tremblay-example"></label></li>
+    <li class="application-question"><label><div class="application-label">GitHub URL</div><input type="text" name="urls[GitHub]" data-expect="github.com/alex-tremblay-example"></label></li>
+    <li class="application-question"><label><div class="application-label">Twitter URL</div><input type="text" name="urls[Twitter]" data-expect=""></label></li>
+  </ul>
+  <h4>Additional questions</h4>
+  <div class="application-question" data-expect="No" data-name="sponsorship future radios">
+    <div class="application-label">Will you now or in the future require sponsorship for employment visa status?</div>
+    <ul style="list-style:none;padding:0">
+      <li><label><input type="radio" name="cards[a][field0]" value="Yes"> Yes</label></li>
+      <li><label><input type="radio" name="cards[a][field0]" value="No"> No</label></li>
+    </ul>
+  </div>
+  <div class="application-question" data-expect="Yes" data-name="relocation radios">
+    <div class="application-label">Are you willing to relocate?</div>
+    <ul style="list-style:none;padding:0">
+      <li><label><input type="radio" name="cards[a][field1]" value="Yes"> Yes</label></li>
+      <li><label><input type="radio" name="cards[a][field1]" value="No"> No</label></li>
+    </ul>
+  </div>
+  <div class="application-question"><label><div class="application-label">How did you hear about this job?</div>
+    <select name="cards[a][field2]" data-expect="Company careers page"><option value="">Select...</option><option>LinkedIn</option><option>Company careers page</option><option>Referral</option></select></label></div>
+  <div class="application-question"><label><div class="application-label">What is your notice period?</div>
+    <input type="text" name="cards[a][field3]" data-expect="Two weeks"></label></div>
+  <div class="application-question"><label><div class="application-label">Have you ever been convicted of a criminal offence?</div>
+    <select name="cards[a][field4]" data-expect="Select..." data-name="criminal record left"><option value="">Select...</option><option>Yes</option><option>No</option></select></label></div>
+  <div class="application-question"><label><div class="application-label">Additional information</div>
+    <textarea name="comments" data-expect="" data-name="additional information textarea left"></textarea></label></div>
+
+  <h4>U.S. Equal Employment Opportunity information</h4>
+  <div class="application-question"><label><div class="application-label">Gender</div>
+    <select name="eeo[gender]" data-expect="Decline to self-identify"><option value="">Select ...</option><option>Male</option><option>Female</option><option>Decline to self-identify</option></select></label></div>
+  <div class="application-question"><label><div class="application-label">Veteran status</div>
+    <select name="eeo[veteran]" data-expect="I am not a veteran"><option value="">Select ...</option><option>I am a veteran</option><option>I am not a veteran</option><option>Decline to self-identify</option></select></label></div>
+  <label><input type="checkbox" name="consent[marketing]" data-expect="unchecked" data-name="future opportunities consent left"> Keep me informed about future opportunities</label>
+  <button type="submit">Submit application</button>
+</form>
+<pre id="jk-results">running…</pre>
+<script src="harness.js"></script>
+</body>
+</html>

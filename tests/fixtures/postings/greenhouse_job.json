@@ -1,0 +1,313 @@
+{
+ "absolute_url": "https://stripe.com/jobs/search?gh_jid=8194287",
+ "id": 8194287,
+ "title": "Data Analyst, Intern",
+ "company_name": "Stripe",
+ "location": {
+  "name": "Toronto"
+ },
+ "first_published": "2026-10-01T11:05:36-04:00",
+ "updated_at": "2026-10-29T10:42:09-04:00",
+ "application_deadline": null,
+ "pay_input_ranges": [],
+ "content": "&lt;h2&gt;Who we are&lt;/h2&gt;\n&lt;h3&gt;About Stripe&lt;/h3&gt;\n&lt;p&gt;Stripe is a technology company focused on improving the conditions for economic growth and prosperity. We build programmable financial infrastructure, rethinking from first principles how financial services should work, to make it easier and cheaper for any business to start and scale. More than 10 million &lt;a href=&quot;https://stripe.com/customers&quot;&gt;businesses&lt;/a&gt; build on Stripe, spanning the economic frontier—from solo founders to established enterprises—united by a practical focus on growth. The most ambitious companies in the world use Stripe as core infrastructure to grow faster. They process trillions of dollars a year on Stripe, equivalent to around 1.6% of global GDP. While economic growth makes everyone better off, open markets also enable greater variety. When any business can easily serve a global customer base, the quality and diversity of products in the world increase, and craft and creativity are unleashed into the smallest niches. Our own growth is wholly contingent on the success of the businesses building on Stripe. We therefore invest back into our technology at an unusual rate. We make &lt;a href=&quot;https://stripe.com/roadmap&quot;&gt;upgrades to our products&lt;/a&gt; every single day to deliver compounding gains to our customers. We maintain some of the most &lt;a href=&quot;https://status.stripe.com/&quot;&gt;reliable APIs&lt;/a&gt; on the internet. We build entirely new &lt;a href=&quot;https://tempo.xyz/&quot;&gt;pieces&lt;/a&gt; of &lt;a href=&quot;https://mpp.dev/&quot;&gt;financial&lt;/a&gt; &lt;a href=&quot;https://joinopenstandard.com/&quot;&gt;infrastructure&lt;/a&gt; to enable new ideas. And our significant advances in &lt;a href=&quot;https://stripe.com/radar&quot;&gt;risk and fraud&lt;/a&gt; infrastructure over many years are making the internet economy safer and more accessible.&lt;/p&gt;\n&lt;p&gt;Though people at Stripe don’t tend to take themselves seriously, Stripe is a fairly serious place: our customers are depending on us for their livelihoods. We admire ambition, intensity, curiosity, humility, and rigor. The most effective people become knowledgeable about many domains besides their own. Any company is an applied exercise in understanding some aspect of society or the market. In working with so many (especially the new and innovative ones), we think that Stripe is one of the very best places to learn about how the world ",
+ "questions": [
+  {
+   "description": null,
+   "label": "First Name",
+   "required": true,
+   "fields": [
+    {
+     "name": "first_name",
+     "type": "input_text",
+     "values": []
+    }
+   ]
+  },
+  {
+   "description": null,
+   "label": "Last Name",
+   "required": true,
+   "fields": [
+    {
+     "name": "last_name",
+     "type": "input_text",
+     "values": []
+    }
+   ]
+  },
+  {
+   "description": null,
+   "label": "Preferred First Name",
+   "required": false,
+   "fields": [
+    {
+     "name": "preferred_name",
+     "type": "input_text",
+     "values": []
+    }
+   ]
+  },
+  {
+   "description": null,
+   "label": "Email",
+   "required": true,
+   "fields": [
+    {
+     "name": "email",
+     "type": "input_text",
+     "values": []
+    }
+   ]
+  },
+  {
+   "description": null,
+   "label": "Phone",
+   "required": true,
+   "fields": [
+    {
+     "name": "phone",
+     "type": "input_text",
+     "values": []
+    }
+   ]
+  },
+  {
+   "description": null,
+   "label": "Resume/CV",
+   "required": true,
+   "fields": [
+    {
+     "name": "resume",
+     "type": "input_file",
+     "values": []
+    },
+    {
+     "name": "resume_text",
+     "type": "textarea",
+     "values": []
+    }
+   ]
+  },
+  {
+   "description": "<p><em>We understand the timing can shift, so please give an approximate estimate (month and year).</em></p>",
+   "label": "When do you expect to complete your degree?",
+   "required": true,
+   "fields": [
+    {
+     "name": "question_69554628",
+     "type": "input_text",
+     "values": []
+    }
+   ]
+  },
+  {
+   "description": null,
+   "label": "Please tell us in 1-2 paragraphs (500 words or less) about a past data-related project you’ve worked on. Please describe the problem you were trying to solve, the types of data you had available, what technical approach/solution you used and any potential impact you had:",
+   "required": true,
+   "fields": [
+    {
+     "name": "question_69554583",
+     "type": "textarea",
+     "values": []
+    }
+   ]
+  },
+  {
+   "description": "<p>This information will only be used to help coordinate your interview process and will not be considered in evaluating your application.</p>",
+   "label": "Do you have an active offer deadline or another recruiting-process deadline we should be aware of? If yes, please share the deadline date and any relevant context.\n",
+   "required": true,
+   "fields": [
+    {
+     "name": "question_69554584",
+     "type": "textarea",
+     "values": []
+    }
+   ]
+  },
+  {
+   "description": null,
+   "label": "We are always aiming to keep our school list inclusive of all institutions. If you do not see your University listed in the previous question, please choose \"other\" and let us know your  school name here.",
+   "required": false,
+   "fields": [
+    {
+     "name": "question_69554585",
+     "type": "input_text",
+     "values": []
+    }
+   ]
+  },
+  {
+   "description": "<p><em>Your responses will not be considered as part of the hiring process or have any impact on hiring decisions</em></p>",
+   "label": "As Stripe grows, we are always aiming to expand our recruitment presence at conferences and gatherings. Please let us know of any conferences you’re planning to attend this year or have previously attended to help inform our team about future recruitment opportunities. ",
+   "required": false,
+   "fields": [
+    {
+     "name": "question_69554586",
+     "type": "textarea",
+     "values": []
+    }
+   ]
+  },
+  {
+   "description": null,
+   "label": "Preferred Name",
+   "required": false,
+   "fields": [
+    {
+     "name": "question_69554587",
+     "type": "input_text",
+     "values": []
+    }
+   ]
+  },
+  {
+   "description": null,
+   "label": "Pronouns",
+   "required": false,
+   "fields": [
+    {
+     "name": "question_69554588",
+     "type": "input_text",
+     "values": []
+    }
+   ]
+  },
+  {
+   "description": null,
+   "label": "LinkedIn Profile, Github, Personal Website, or Portfolio",
+   "required": false,
+   "fields": [
+    {
+     "name": "question_69554589",
+     "type": "input_text",
+     "values": []
+    }
+   ]
+  },
+  {
+   "description": "<p>Note that since we are capturing all of your preferences in one application (reminder - we don't need multiple applications across our US or Canadian offices), we ask you please answer all of the questions listed below regardless of your preferred work location.</p>",
+   "label": "Are you currently eligible to work in Canada?",
+   "required": true,
+   "fields": [
+    {
+     "name": "question_69554590",
+     "type": "multi_value_single_select",
+     "values": [
+      {
+       "label": "Yes, I am currently eligible to work in the location where this role is based.",
+       "value": 754011839
+      },
+      {
+       "label": "No, I am not currently eligible to work in the location where this role is based.",
+       "value": 754011840
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "description": null,
+   "label": "Do you require visa sponsorship, now or in the future, to continue working in Canada?",
+   "required": true,
+   "fields": [
+    {
+     "name": "question_69554591",
+     "type": "multi_value_single_select",
+     "values": [
+      {
+       "label": "Yes, I will require visa sponsorship now or in the future to continue working in the country where this role is based.",
+       "value": 754011841
+      },
+      {
+       "label": "No, I do not require visa sponsorship now or in the future to continue working in the country where this role is based.",
+       "value": 754011842
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "description": "<p>Use of BrightHire is not a factor that will be considered when assessing your suitability for a role. Any interview notes and analysis by BrightHire are subject to human review by the hiring team.</p>\n<p><strong data-stringify-type=\"bold\">[For EU/UK/Swiss based roles only: </strong>We collect, use, disclose, and retain personal information in accordance with our European Applicant Personal Information Notice&nbsp;<a class=\"c-link\" href=\"https://stripe.com/ie/legal/eu-applicant-notice\" target=\"_blank\" rel=\"noopener noreferrer\" data-stringify-link=\"https://stripe.com/ie/legal/eu-applicant-notice\" data-sk=\"tooltip_parent\">here</a>.]</p>",
+   "label": "To ensure we can focus fully on our conversation, we use BrightHire to record and transcribe interviews. This helps us get to know you better without the distraction of note-taking. We also use BrightHire to help us analyze interview notes and for internal Stripe interview quality training and assurance purposes. After the recruitment process ends, recordings may be shared internally for recruiter and interviewer training to help us improve our interview processes. Please confirm if you consent to BrightHire being enabled for this interview and for your personal data to be collected and processed for the purposes mentioned above, by responding below",
+   "required": true,
+   "fields": [
+    {
+     "name": "question_69554592",
+     "type": "multi_value_single_select",
+     "values": [
+      {
+       "label": "Yes",
+       "value": 1
+      },
+      {
+       "label": "No",
+       "value": 0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "description": null,
+   "label": "Who is your current or previous employer?",
+   "required": true,
+   "fields": [
+    {
+     "name": "question_69554593",
+     "type": "input_text",
+     "values": []
+    }
+   ]
+  },
+  {
+   "description": null,
+   "label": "What is your current or previous job title?",
+   "required": true,
+   "fields": [
+    {
+     "name": "question_69554594",
+     "type": "input_text",
+     "values": []
+    }
+   ]
+  },
+  {
+   "description": "<p><em>If you don't see your country in the list, please select 'Other'.</em></p>",
+   "label": "Please select the country where you currently reside.\n",
+   "required": true,
+   "fields": [
+    {
+     "name": "question_69554595",
+     "type": "multi_value_single_select",
+     "values": [
+      {
+       "label": "Australia",
+       "value": 754011843
+      },
+      {
+       "label": "Belgium",
+       "value": 754011844
+      },
+      {
+       "label": "Brazil",
+       "value": 754011845
+      },
+      {
+       "label": "Canada",
+       "value": 754011846
+      },
+      {
+       "label": "Egypt",
+       "value": 754011847
+      },
+      {
+       "label": "France",
+       "value": 754011848
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

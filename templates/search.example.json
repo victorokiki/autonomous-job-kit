@@ -1,0 +1,78 @@
+{
+  "_comment": "FICTIONAL example search settings. Copy to your own job-search folder as search.json and edit. Tracks are job families: a job whose title contains one of the 'titles' words joins that track; 'priority' (0-1) weights the title score. Employer boards are added most easily with: python internship-application/scripts/find_jobs.py --folder <folder> --add-employer <any link to the board> Other countries: search.uk.example.json, search.us.example.json. Pathway types and checks: internship-application/references/pathways.md.",
+  "country": "Canada",
+  "province": "NS",
+  "local_places": [
+    "halifax",
+    "dartmouth",
+    "bedford"
+  ],
+  "min_score_to_queue": 55,
+  "max_queue_per_run": 10,
+  "tracks": {
+    "data": {
+      "priority": 1.0,
+      "titles": [
+        "data analyst",
+        "business analyst",
+        "reporting analyst",
+        "bi analyst",
+        "business intelligence",
+        "analytics"
+      ]
+    },
+    "operations": {
+      "priority": 0.7,
+      "titles": [
+        "operations analyst",
+        "operations coordinator",
+        "logistics coordinator",
+        "supply chain analyst"
+      ]
+    },
+    "support": {
+      "priority": 0.5,
+      "titles": [
+        "customer success",
+        "technical support",
+        "support analyst",
+        "crm"
+      ]
+    }
+  },
+  "exclude_titles": [
+    "senior",
+    "sr.",
+    "principal",
+    "staff ",
+    "lead ",
+    "manager",
+    "director",
+    "head of",
+    "vice president",
+    "chief"
+  ],
+  "extra_skills": [
+    "looker studio",
+    "alteryx"
+  ],
+  "jobbank_queries": [
+    "data analyst",
+    "business analyst",
+    "operations coordinator"
+  ],
+  "remotive_categories": [
+    "data"
+  ],
+  "employers": {
+    "greenhouse": [],
+    "lever": [],
+    "ashby": [],
+    "smartrecruiters": [],
+    "workday": []
+  },
+  "pathway": {
+    "type": "none",
+    "goal": ""
+  }
+}

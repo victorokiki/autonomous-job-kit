@@ -1,0 +1,61 @@
+{
+  "_comment": "FICTIONAL UK example: a data analyst in London aiming for a Skilled Worker visa, then settlement. The user looks up minSalary on gov.uk themselves; it is not advice. See internship-application/references/pathways.md.",
+  "country": "United Kingdom",
+  "region": "london",
+  "local_places": [
+    "london",
+    "croydon",
+    "watford"
+  ],
+  "min_score_to_queue": 55,
+  "max_queue_per_run": 10,
+  "tracks": {
+    "data": {
+      "priority": 1.0,
+      "titles": [
+        "data analyst",
+        "business analyst",
+        "insight analyst",
+        "reporting analyst",
+        "bi analyst"
+      ]
+    },
+    "operations": {
+      "priority": 0.6,
+      "titles": [
+        "operations analyst",
+        "commercial analyst"
+      ]
+    }
+  },
+  "exclude_titles": [
+    "senior",
+    "principal",
+    "lead ",
+    "manager",
+    "director",
+    "head of"
+  ],
+  "extra_skills": [
+    "alteryx",
+    "looker studio"
+  ],
+  "remotive_categories": [
+    "data"
+  ],
+  "employers": {
+    "greenhouse": [],
+    "lever": [],
+    "ashby": [],
+    "smartrecruiters": [],
+    "workday": []
+  },
+  "pathway": {
+    "type": "uk-skilled-worker",
+    "goal": "Skilled Worker visa, then settlement (ILR)",
+    "requireSponsor": true,
+    "minSalary": 0,
+    "avoidTemporary": true,
+    "eligibleCodes": []
+  }
+}

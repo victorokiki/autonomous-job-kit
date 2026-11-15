@@ -1,0 +1,261 @@
+{
+ "data": {
+  "jobPosting": {
+   "id": "acf6b28d-767f-483f-8ff2-114620cd7e04",
+   "title": "Software Engineering Intern, Backend",
+   "departmentName": "Engineering",
+   "locationName": "New York, NY (HQ)",
+   "workplaceType": "OnSite",
+   "employmentType": "Intern",
+   "descriptionHtml": "<h1><strong>About Ramp</strong></h1><p style=\"min-height:1.5em\">Ramp is building the smart infrastructure for finance teams, embedded in the transaction flow of every dollar a business spends. We automate how over $275B in annualized spend flows in and out of 85,000+ companies: authorizing payments, flagging risk, categorizing spend, and closing books.</p><p style=\"min-height:1.5em\">The problems are high-stakes, data-dense, and unforgiving.</p><p style=\"min-height:1.5em\">We hire people with high agency and high urgency. We look for slope over intercept. We care less about where you trained and more about what you’ve built. At Ramp, everyone is a builder who owns problems end to end and makes consequential decisions that shape the outcome.</p><p style=\"min-height:1.5em\">The median Ramp customer saves 7.5% and grows revenue 16% in their first year – far in excess of businesses operating without Ramp. We believe every ambitious company deserves the same.</p><p style=\"min-height:1.5em\">If you want to build systems that directly shape how companies move and manage billions, Ramp is the place to do it.</p><p style=\"min-height:1.5em\"></p><p style=\"min-height:1.5em\">Explore our <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://builders.ramp.com\">Engineering Blog</a> &amp; <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://builders.ramp.com/emerging-talent\">Emerging Talent</a><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"#\"> Blog</a> to learn more about how we build at Ramp and what it’s like to start your career here.</p><p style=\"min-height:1.5em\"></p><h1><strong>About the Role</strong></h1><p style=\"min-height:1.5em\">Ramp is, at its core, an engineering company. We’re looking for backend engineering interns (12 or 16-week co-ops) excited to solve challenging technical problems and ship products used by real customers.</p><p style=\"min-height:1.5em\">You’ll work alongside experienced engineers and own meaningful projects from inception to production. We value strong technical fundamentals, high ownership, and people who learn quickly, whether or not they’re familiar with our stack.</p><p style=\"min-height:1.5em\"></p><h2><strong>What You’ll Do</strong></h2><ul style=\"min-height:1.5em\"><li><p style=\"min-height:1.5em\">Build performant, reliable, and scalable systems powering Ramp’s products</p></li></ul><ul style=\"min-height:1.5em\"><li><p style=\"min-height:1.5em\">Own meaningful projects from design through launch</p></li><li><p style=\"min-height:1.5em\">Solve problems across areas like payments, risk and fraud, financial infrastructure, data, and AI</p></li><li><p style=\"min-height:1.5em\">Work closely with product and business teams to understand customer needs and improve our products</p></li><li><p style=\"min-height:1.5em\">Contribute to engineering tools and systems that help Ramp scale</p></li></ul><p style=\"min-height:1.5em\"></p><h2><strong>What You’ll Need</strong></h2><ul style=\"min-height:1.5em\"><li><p ",
+   "isListed": true,
+   "publishedDate": "2026-04-09",
+   "applicationDeadline": null,
+   "compensationTierSummary": "$12.5K per month",
+   "applicationForm": {
+    "sections": [
+     {
+      "title": null,
+      "fieldEntries": [
+       {
+        "id": "f59a11ba-cdcc-4159-b30c-c6379fc2a4bf__systemfield_name",
+        "field": {
+         "id": "c28b38b0-c3af-4dca-94e7-d5cac38ac0af",
+         "path": "_systemfield_name",
+         "humanReadablePath": "Name",
+         "title": "Full Legal Name",
+         "isNullable": false,
+         "isPrivate": false,
+         "isDeactivated": false,
+         "isMany": false,
+         "metadata": {},
+         "type": "String",
+         "__autoSerializationID": "StringField"
+        },
+        "isRequired": true,
+        "descriptionHtml": null,
+        "isHidden": null
+       },
+       {
+        "id": "f59a11ba-cdcc-4159-b30c-c6379fc2a4bf_8e30d9c6-e76c-4f42-9cf0-8b194805d3bc",
+        "field": {
+         "id": "55069670-7f01-45bc-b79e-509e01ec7d9a",
+         "path": "8e30d9c6-e76c-4f42-9cf0-8b194805d3bc",
+         "humanReadablePath": "",
+         "title": "Pronouns",
+         "isNullable": false,
+         "isPrivate": false,
+         "isDeactivated": false,
+         "isMany": false,
+         "metadata": {},
+         "type": "String",
+         "__autoSerializationID": "StringField"
+        },
+        "isRequired": false,
+        "descriptionHtml": null,
+        "isHidden": null
+       },
+       {
+        "id": "f59a11ba-cdcc-4159-b30c-c6379fc2a4bf__systemfield_email",
+        "field": {
+         "id": "6fcea174-0c09-4b01-b613-eee516ca10d9",
+         "path": "_systemfield_email",
+         "humanReadablePath": "Email",
+         "title": "Email",
+         "isNullable": false,
+         "isPrivate": false,
+         "isDeactivated": false,
+         "isMany": false,
+         "metadata": {},
+         "type": "Email",
+         "__autoSerializationID": "EmailField"
+        },
+        "isRequired": true,
+        "descriptionHtml": null,
+        "isHidden": null
+       },
+       {
+        "id": "f59a11ba-cdcc-4159-b30c-c6379fc2a4bf_424f5b1c-cf4a-4ac6-9434-88579ce7ce81",
+        "field": {
+         "id": "424f5b1c-cf4a-4ac6-9434-88579ce7ce81",
+         "path": "424f5b1c-cf4a-4ac6-9434-88579ce7ce81",
+         "humanReadablePath": "",
+         "title": "Phone",
+         "isNullable": false,
+         "isPrivate": false,
+         "isDeactivated": false,
+         "isMany": false,
+         "metadata": {},
+         "type": "Phone",
+         "__autoSerializationID": "PhoneField"
+        },
+        "isRequired": true,
+        "descriptionHtml": null,
+        "isHidden": null
+       },
+       {
+        "id": "f59a11ba-cdcc-4159-b30c-c6379fc2a4bf__systemfield_resume",
+        "field": {
+         "id": "6cf3addd-17d2-4eab-8431-44f0ff082970",
+         "path": "_systemfield_resume",
+         "humanReadablePath": "Resume",
+         "title": "Resume",
+         "isNullable": false,
+         "isPrivate": false,
+         "isDeactivated": false,
+         "isMany": false,
+         "metadata": {},
+         "type": "File",
+         "__autoSerializationID": "FileField"
+        },
+        "isRequired": true,
+        "descriptionHtml": null,
+        "isHidden": null
+       },
+       {
+        "id": "f59a11ba-cdcc-4159-b30c-c6379fc2a4bf_2c52b6f3-04e4-4bc7-b16c-a7fee305bd7a",
+        "field": {
+         "id": "2c52b6f3-04e4-4bc7-b16c-a7fee305bd7a",
+         "path": "2c52b6f3-04e4-4bc7-b16c-a7fee305bd7a",
+         "humanReadablePath": "",
+         "title": "LinkedIn Profile",
+         "isNullable": false,
+         "isPrivate": false,
+         "isDeactivated": false,
+         "isMany": false,
+         "metadata": {},
+         "type": "String",
+         "__autoSerializationID": "StringField"
+        },
+        "isRequired": false,
+        "descriptionHtml": null,
+        "isHidden": null
+       },
+       {
+        "id": "f59a11ba-cdcc-4159-b30c-c6379fc2a4bf__systemfield_education_history",
+        "field": {
+         "id": "3bab9cbe-ea0d-494a-a2bf-177a7c15cc2f",
+         "path": "_systemfield_education_history",
+         "humanReadablePath": "Education History",
+         "title": "Education History",
+         "isNullable": false,
+         "isPrivate": false,
+         "isDeactivated": false,
+         "isMany": false,
+         "metadata": {},
+         "type": "EducationHistory",
+         "schoolName": "required",
+         "degree": "optional",
+         "major": "optional",
+         "startDate": "optional",
+         "endDate": "optional",
+         "isRepeatable": true,
+         "minRepeat": 1,
+         "__autoSerializationID": "EducationHistoryField"
+        },
+        "isRequired": true,
+        "descriptionHtml": null,
+        "isHidden": null
+       },
+       {
+        "id": "f59a11ba-cdcc-4159-b30c-c6379fc2a4bf_8de847ba-74f5-40b7-bdbb-3afc9f4bb0a2",
+        "field": {
+         "id": "33decff8-37f3-4c3e-83bc-de260aacf7d3",
+         "path": "8de847ba-74f5-40b7-bdbb-3afc9f4bb0a2",
+         "humanReadablePath": "",
+         "title": "What is your graduation date?",
+         "isNullable": false,
+         "isPrivate": false,
+         "isDeactivated": false,
+         "isMany": false,
+         "metadata": {},
+         "type": "Date",
+         "__autoSerializationID": "DateField"
+        },
+        "isRequired": true,
+        "descriptionHtml": "<p><em>The exact day doesn’t need to be accurate, but the month and year are helpful!</em></p>",
+        "isHidden": null
+       },
+       {
+        "id": "f59a11ba-cdcc-4159-b30c-c6379fc2a4bf_ebd65077-90f9-439d-95d0-0b53c8686a15",
+        "field": {
+         "id": "ebd65077-90f9-439d-95d0-0b53c8686a15",
+         "path": "ebd65077-90f9-439d-95d0-0b53c8686a15",
+         "humanReadablePath": "",
+         "title": "Are you currently located in, or willing to relocate to, the Greater New York City area and work from our NYC office for the duration of the internship?",
+         "isNullable": false,
+         "isPrivate": false,
+         "isDeactivated": false,
+         "isMany": false,
+         "metadata": {},
+         "type": "Boolean",
+         "__autoSerializationID": "BooleanField"
+        },
+        "isRequired": true,
+        "descriptionHtml": null,
+        "isHidden": null
+       },
+       {
+        "id": "f59a11ba-cdcc-4159-b30c-c6379fc2a4bf_36e38b9d-91be-48fc-9a00-592b6ddb5a36",
+        "field": {
+         "id": "36e38b9d-91be-48fc-9a00-592b6ddb5a36",
+         "path": "36e38b9d-91be-48fc-9a00-592b6ddb5a36",
+         "humanReadablePath": "",
+         "title": "Requesting visa sponsorship?",
+         "isNullable": false,
+         "isPrivate": false,
+         "isDeactivated": false,
+         "isMany": false,
+         "metadata": {},
+         "type": "Boolean",
+         "__autoSerializationID": "BooleanField"
+        },
+        "isRequired": true,
+        "descriptionHtml": null,
+        "isHidden": null
+       },
+       {
+        "id": "f59a11ba-cdcc-4159-b30c-c6379fc2a4bf_091950fa-21d5-4ec4-8c30-7fd472d6e82f",
+        "field": {
+         "id": "53931f25-cf0e-420a-9219-32a542384b76",
+         "path": "091950fa-21d5-4ec4-8c30-7fd472d6e82f",
+         "humanReadablePath": "",
+         "title": "Share something you’ve built that you’re proud of.",
+         "isNullable": false,
+         "isPrivate": false,
+         "isDeactivated": false,
+         "isMany": false,
+         "metadata": {},
+         "type": "String",
+         "__autoSerializationID": "StringField"
+        },
+        "isRequired": true,
+        "descriptionHtml": "<p><em>This be a link to an app, website, project, demo, video, GitHub repo, or anything else you’ve created.</em></p>",
+        "isHidden": null
+       },
+       {
+        "id": "f59a11ba-cdcc-4159-b30c-c6379fc2a4bf_f89cc34f-e415-4b90-9bb4-aec8250c9e19",
+        "field": {
+         "id": "c4a80ba0-80f1-477c-b38a-b73ece5adbd9",
+         "path": "f89cc34f-e415-4b90-9bb4-aec8250c9e19",
+         "humanReadablePath": "",
+         "title": "Take this builder's quiz: https://awu-ramp.github.io/ramp-builder-quiz/",
+         "isNullable": false,
+         "isPrivate": false,
+         "isDeactivated": false,
+         "isMany": false,
+         "metadata": {},
+         "type": "String",
+         "__autoSerializationID": "StringField"
+        },
+        "isRequired": true,
+        "descriptionHtml": "<p><em>Enter your results below! :)</em></p>",
+        "isHidden": null
+       }
+      ]
+     }
+    ]
+   }
+  }
+ }
+}

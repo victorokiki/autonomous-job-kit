@@ -1,0 +1,56 @@
+{
+  "_comment": "FICTIONAL US example: a new graduate in Texas on F-1 OPT who will need H-1B sponsorship later. See internship-application/references/pathways.md.",
+  "country": "United States",
+  "state": "TX",
+  "local_places": [
+    "austin",
+    "round rock"
+  ],
+  "min_score_to_queue": 55,
+  "max_queue_per_run": 10,
+  "tracks": {
+    "software": {
+      "priority": 1.0,
+      "titles": [
+        "software engineer",
+        "software developer",
+        "backend engineer",
+        "new grad"
+      ]
+    },
+    "data": {
+      "priority": 0.7,
+      "titles": [
+        "data engineer",
+        "data analyst"
+      ]
+    }
+  },
+  "exclude_titles": [
+    "senior",
+    "staff ",
+    "principal",
+    "lead ",
+    "manager",
+    "director"
+  ],
+  "extra_skills": [],
+  "remotive_categories": [
+    "software-dev"
+  ],
+  "employers": {
+    "greenhouse": [],
+    "lever": [],
+    "ashby": [],
+    "smartrecruiters": [],
+    "workday": []
+  },
+  "pathway": {
+    "type": "us-opt",
+    "goal": "STEM OPT now, H-1B later",
+    "requireSponsor": true,
+    "minSalary": 0,
+    "avoidTemporary": false,
+    "eligibleCodes": []
+  }
+}

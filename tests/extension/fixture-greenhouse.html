@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Fixture: Greenhouse-like form</title>
+<style>
+  body { font: 14px system-ui, sans-serif; max-width: 720px; margin: 24px auto; padding: 0 16px; }
+  .field { margin: 12px 0; } label { display: block; font-weight: 600; }
+  input[type=text], input[type=email], input[type=tel], select, textarea { width: 100%; padding: 6px; }
+  .rs { position: relative; } .rs-control { display: flex; border: 1px solid #999; padding: 4px; }
+  .rs-single-value { padding-right: 6px; } .rs input { border: 0; flex: 1; }
+  [role=listbox] { border: 1px solid #999; background: #fff; } [role=option] { padding: 4px; cursor: pointer; }
+  pre { background: #f3f3f3; padding: 12px; white-space: pre-wrap; }
+</style>
+</head>
+<body>
+<h1>Software Analyst Intern (fixture)</h1>
+<form id="application-form" action="javascript:void(0)">
+  <h2>Personal information</h2>
+  <div class="field"><label for="first_name">First Name *</label>
+    <input type="text" id="first_name" name="job_application[first_name]" data-controlled="firstName" data-expect="Alex" aria-required="true"></div>
+  <div class="field"><label for="last_name">Last Name *</label>
+    <input type="text" id="last_name" name="job_application[last_name]" data-expect="Tremblay"></div>
+  <div class="field"><label for="preferred_name">Preferred First Name</label>
+    <input type="text" id="preferred_name" value="AJ" data-expect="AJ" data-name="pre-filled preferred name is kept"></div>
+  <div class="field"><label for="email">Email *</label>
+    <input type="email" id="email" data-expect="alex.tremblay@example.com"></div>
+  <div class="field"><label for="phone">Phone</label>
+    <input type="tel" id="phone" data-expect="+1 (902) 555-0142"></div>
+  <div class="field"><label id="loc-label" for="loc">Location (City)</label>
+    <div class="rs" data-options="Halifax, England, United Kingdom|Halifax, Nova Scotia, Canada|Hamilton, Ontario, Canada">
+      <div class="rs-control"><div class="rs-single-value" data-expect="Halifax, Nova Scotia, Canada" data-name="location combobox"></div>
+        <input id="loc" role="combobox" aria-labelledby="loc-label" aria-controls="loc-list" aria-expanded="false" autocomplete="off"></div>
+      <div role="listbox" id="loc-list" hidden></div></div></div>
+  <div class="field"><label for="resume">Resume/CV *</label>
+    <input type="file" id="resume" accept=".pdf,.doc,.docx" data-expect="Alex_Tremblay_Resume.pdf"></div>
+  <div class="field"><label for="cover_letter">Cover Letter</label>
+    <input type="file" id="cover_letter" accept=".pdf" data-expect=""></div>
+
+  <h2>Links</h2>
+  <div class="field"><label for="q_linkedin">LinkedIn Profile</label><input type="text" id="q_linkedin" data-expect="linkedin.com/in/alex-tremblay-example"></div>
+  <div class="field"><label for="q_website">Website</label><input type="text" id="q_website" data-expect="alex-tremblay.example.com"></div>
+
+  <h2>Education</h2>
+  <div class="field"><label for="school">School</label>
+    <select id="school" data-expect="Atlantic Coast University"><option value="">Select...</option><option>Acadia University</option><option>Atlantic Coast University</option><option>Dalhousie University</option></select></div>
+  <div class="field"><label for="degree">Degree</label>
+    <select id="degree" data-expect="Bachelor's Degree"><option value="">Select...</option><option>High School</option><option>Associate's Degree</option><option>Bachelor's Degree</option><option>Master's Degree</option></select></div>
+  <div class="field"><label for="discipline">Discipline</label>
+    <select id="discipline" data-expect="Business Analytics"><option value="">Select...</option><option>Accounting</option><option>Business Analytics</option><option>Computer Science</option></select></div>
+  <div class="field"><label for="edu_end_year">End Date Year</label>
+    <input type="text" id="edu_end_year" data-expect="2023"></div>
+
+  <h2>Questions</h2>
+  <div class="field"><label id="auth-label" for="auth">Are you legally authorized to work in Canada? *</label>
+    <div class="rs" data-options="Yes|No">
+      <div class="rs-control"><div class="rs-single-value" data-expect="Yes" data-name="work authorization combobox"></div>
+        <input id="auth" role="combobox" aria-labelledby="auth-label" aria-controls="auth-list" aria-expanded="false"></div>
+      <div role="listbox" id="auth-list" hidden></div></div></div>
+  <div class="field"><label for="us_auth">Are you legally authorized to work in the United States?</label>
+    <select id="us_auth" data-expect="Select..." data-name="US authorization left (different country)"><option value="">Select...</option><option>Yes</option><option>No</option></select></div>
+  <div class="field"><label for="why">Why do you want to work here? *</label>
+    <textarea id="why" rows="4" data-expect="" data-name="open textarea left alone"></textarea></div>
+  <div class="field"><label for="ssn">Social Security Number</label>
+    <input type="text" id="ssn" data-expect="" data-name="SSN left alone"></div>
+
+  <h2>Voluntary Self-Identification</h2>
+  <div class="field"><label for="gender">Gender</label>
+    <select id="gender" data-expect="Decline To Self Identify"><option value="">Please select</option><option>Male</option><option>Female</option><option>Decline To Self Identify</option></select></div>
+  <div class="field"><label for="hispanic">Are you Hispanic/Latino?</label>
+    <select id="hispanic" data-expect="No"><option value="">Please select</option><option>Yes</option><option>No</option><option>Decline To Self Identify</option></select></div>
+  <div class="field"><label for="race">Please identify your race</label>
+    <select id="race" data-expect="White (Not Hispanic or Latino)"><option value="">Please select</option><option>Hispanic or Latino</option><option>White (Not Hispanic or Latino)</option><option>Black or African American (Not Hispanic or Latino)</option><option>Asian (Not Hispanic or Latino)</option><option>Decline To Self Identify</option></select></div>
+  <div class="field"><label for="veteran">Veteran Status</label>
+    <select id="veteran" data-expect="I am not a protected veteran"><option value="">Please select</option><option>I am not a protected veteran</option><option>I identify as one or more of the classifications of protected veteran</option><option>I don't wish to answer</option></select></div>
+  <div class="field"><label for="disability">Disability Status</label>
+    <select id="disability" data-expect="I don't wish to answer"><option value="">Please select</option><option>Yes, I have a disability (or previously had a disability)</option><option>No, I don't have a disability</option><option>I don't wish to answer</option></select></div>
+
+  <div class="field"><label><input type="checkbox" id="consent" data-expect="unchecked" data-name="privacy consent left unticked"> I agree to the privacy policy and consent to the processing of my data.</label></div>
+  <button type="submit">Submit application</button>
+</form>
+<pre id="jk-results">running…</pre>
+<script>
+  window.JK_EXTRA_CHECKS = [
+    function () { return ['React-style controlled input kept the value', window.JK_STATE.firstName === 'Alex', 'state: ' + window.JK_STATE.firstName]; },
+    function (r, text) { return ['report lists the open textarea', /Why do you want to work here\? \(textarea, required/.test(text), '']; }
+  ];
+</script>
+<script src="widgets.js"></script>
+<script src="harness.js"></script>
+</body>
+</html>

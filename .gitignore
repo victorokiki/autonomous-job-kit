@@ -1,0 +1,37 @@
+# ---- Your personal data must never be committed ----------------------------------------------------------------
+# Keep your job-search folder OUTSIDE this repository. These rules are only a safety net in case you don't.
+job-search/
+job-search-*/
+*job-search*/
+profile.json
+search.json
+jobs.txt
+tracker.xlsx
+dashboard.html
+Applications/
+digests/
+reports/
+resume/
+source/
+style-guide/
+_old/
+.cache/
+*.pdf
+*.docx
+transcript.*
+
+# Example files that are safe to share (fictional person)
+!templates/**
+!tests/**
+
+# ---- Build and tool output ----------------------------------------------------------------------------------------
+__pycache__/
+*.pyc
+dist/
+*.zip
+
+# ---- Operating system and editor files ----------------------------------------------------------------------------
+.DS_Store
+Thumbs.db
+desktop.ini
+CLAUDE.md

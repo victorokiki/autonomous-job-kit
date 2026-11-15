@@ -27,7 +27,7 @@ Only when the folder has none.
 
 ## Keys and allowed values
 
-**Identity and contact:** `firstName`, `middleName`, `lastName`, `preferredName`, `legalName` (signatures and "legal name" fields), `resumeName` (the name exactly as printed on resumes and letters, e.g. "Alex Morgan Tremblay"; cover_letter.py uses it and it goes to check_tailored.py as `--name`), `email`, `phone`, `street`, `city`, `state` (province/state/region code), `relocationWording` (optional pattern for the resume's relocation note, default `"Relocating to {city}"`), `postalCode`, `country`, `linkedin`, `github`, `portfolio`, `website`.
+**Identity and contact:** `firstName`, `middleName`, `lastName`, `preferredName`, `legalName` (signatures and "legal name" fields), `resumeName` (the name exactly as printed on resumes and letters, e.g. "Alex Morgan Tremblay"; cover_letter.py uses it and it goes to check_tailored.py as `--name`), `email`, `phone`, `street`, `city`, `state` (province/state/region code), `relocationWording` (optional pattern for the resume's relocation note, default `"Relocating to {city}"`), `resumeLocation` (`"job-city"`: the resume and letter show only the job's location for out-of-town jobs), `postalCode`, `country`, `linkedin`, `github`, `portfolio`, `website`.
 
 **History (lists):**
 

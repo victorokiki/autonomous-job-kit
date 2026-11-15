@@ -35,6 +35,13 @@ class LocationLine(unittest.TestCase):
         p = dict(ME, state='British Columbia', relocationWording='Open to relocating to {city}')
         self.assertEqual(self.line('Toronto, ON', p), 'Surrey, BC · Open to relocating to Toronto, ON')
 
+    def test_job_city_only(self):
+        p = dict(ME, resumeLocation='job-city')
+        self.assertEqual(self.line('Calgary, AB (on-site)', p), 'Calgary, AB')
+        self.assertEqual(self.line('Remote - Canada', p), 'Surrey, BC')
+        self.assertEqual(self.line('Vancouver, BC', p), 'Surrey, BC')
+        self.assertEqual(self.line('Calgary, AB', dict(p, willingToRelocate='no')), 'Surrey, BC')
+
     def test_same_city_name_other_region(self):
         p = {'city': 'London', 'state': 'ON', 'willingToRelocate': 'yes'}
         self.assertEqual(self.line('London, KY', p), 'London, ON · Relocating to London, KY')

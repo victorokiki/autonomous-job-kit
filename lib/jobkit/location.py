@@ -6,7 +6,8 @@ user's real city always stays (forms, background checks and interviews use it); 
 metro area and users who won't relocate keep the plain city line.
 
 Profile keys: city, state (province or state), willingToRelocate ("yes"/"no"), and optionally relocationWording, a
-pattern with {city} (default "Relocating to {city}"), e.g. "Open to relocating to {city}".
+pattern with {city} (default "Relocating to {city}"), e.g. "Open to relocating to {city}"; resumeLocation "job-city"
+puts only the job's location ("Calgary, AB") in the line, and the cover letter's relocation sentence explains the move.
 """
 import re
 
@@ -153,6 +154,8 @@ def location_line(profile, posting_location):
         return {**base, 'why': 'job is in your area'}
     if str(profile.get('willingToRelocate') or '').strip().lower() not in ('yes', 'y', 'true'):
         return {**base, 'why': 'willingToRelocate is not "yes"'}
+    if str(profile.get('resumeLocation') or '').strip().lower() in ('job-city', 'job city', 'job'):
+        return {**base, 'line': place['label'], 'relocating': True, 'why': f'job is in {place["label"]}'}
     pattern = (profile.get('relocationWording') or '').strip() or 'Relocating to {city}'
     if '{city}' not in pattern:
         pattern += ' {city}'

@@ -18,9 +18,10 @@ Anything the role asks for that the user doesn't have is recorded as a gap in ch
 `Surrey, BC · Relocating to Toronto, ON (job is in Toronto, ON)`. Put the part before the brackets where the master's
 contact block shows the city, replacing only the city and province: the street, if any, is dropped for that version.
 It names the job's city only when the job is on-site or hybrid outside the user's commute area and `willingToRelocate`
-is `"yes"`; remote and local jobs keep the plain city. Never write the job's city as where the user lives: forms,
-background checks and interviews use the real one. `relocationWording` in profile.json changes the wording
-(e.g. `"Open to relocating to {city}"`). Note the change under "What changed" in changes.md.
+is `"yes"`; remote and local jobs keep the plain city. `relocationWording` in profile.json changes the wording
+(e.g. `"Open to relocating to {city}"`); `resumeLocation: "job-city"` makes the line just the job's location
+(`Calgary, AB`), the user's choice. Forms always keep the user's real address, and the letter's relocation sentence
+says they are moving. Note the change under "What changed" in changes.md.
 
 **Honesty test:** picture the user's supervisor, instructor or teammate reading the line. Would they nod? Borrowing the posting's vocabulary for work the master documents is fine ("REST API" for endpoints the user wrote in Flask). A tool, number or responsibility absent from the master is not.
 

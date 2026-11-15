@@ -217,7 +217,9 @@ const CASES = [
   ['Preferred start date', 'text', 'start date'],
   ["Do you have a valid driver's licence?", 'radio', 'left:unknown question'],
   ["Driver's licence number", 'text', 'left:sensitive'],
-  ['Do you have relatives who are government officials?', 'radio', 'government relative']
+  ['Do you have relatives who are government officials?', 'radio', 'government relative'],
+  ['Please tell us how you heard about this opportunity.', 'select', 'saved answer "how did you hear"'],
+  ['Where did you first learn about this role?', 'select', 'saved answer "how did you hear"']
 ];
 CASES.forEach(([text, control, want, extra]) => {
   const d = R.decide(q(text, control, extra), profile, {});
@@ -245,6 +247,12 @@ test('open-to-all work arrangement prefers a flexible option, then on-site', () 
   assert.ok(d.want.matchers[0]('No preference'));
   assert.ok(d.want.matchers[1]('On-site') && !d.want.matchers[1]('Remote'));
   assert.strictEqual(pick(['Remote', 'Hybrid', 'On-site']), 1);
+});
+test('heard-about answers pick the employer careers site option', () => {
+  const P = Object.assign({}, profile, { savedAnswers: [{ match: 'how did you hear', answer: 'Company careers page' }] });
+  const d = R.decide(q('Please tell us how you heard about this opportunity.', 'select'), P, {});
+  const opts = ['Agency or Non-Palantir Recruiter', 'Glassdoor', 'Job Board (Indeed, etc.)', 'Palantir Careers Site', 'Campus Ambassador'];
+  assert.strictEqual(opts.findIndex(d.want.matchers[0]), 3);
 });
 test('phone splits when the form has a country-code field', () => {
   const d = R.decide(q('Phone number'), profile, { hasPhoneCode: true });

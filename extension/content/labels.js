@@ -45,6 +45,17 @@
       return collapse(node.innerText !== undefined && node.isConnected ? node.innerText || node.textContent : node.textContent);
     }
     var c = node.cloneNode(true);
+    // Drop text the user can't see (status messages such as "Loading" or "No results found" that sit inside the
+    // question block), matching live and cloned elements by position.
+    if (node.isConnected) {
+      var live = node.querySelectorAll('*');
+      var copy = c.querySelectorAll('*');
+      var hidden = [];
+      for (var h = 0; h < live.length && h < copy.length; h++) {
+        if (live[h].tagName !== 'OPTION' && !visible(live[h]) && collapse(live[h].textContent)) hidden.push(copy[h]);
+      }
+      hidden.forEach(function (n) { if (n.parentNode) n.remove(); });
+    }
     var junk = c.querySelectorAll('input, select, textarea, [role="listbox"], [aria-hidden="true"], script, style');
     for (var i = 0; i < junk.length; i++) junk[i].remove();
     return collapse(c.textContent);
@@ -67,7 +78,7 @@
       .replace(/\d+/g, ' '));
   }
 
-  var GENERIC_PLACEHOLDER = /^(select|select\.\.\.|select one|choose|search|type here|type to search|start typing|enter|mm\/dd\/yyyy|mm\/yyyy|yyyy|dd\/mm\/yyyy)\.*$/i;
+  var GENERIC_PLACEHOLDER = /^(select|select\.\.\.|select one|choose|search|type here|type to search|start typing|enter|mm\/dd\/yyyy|mm\/yyyy|yyyy|dd\/mm\/yyyy|type your (response|answer)( here)?|your (response|answer)|enter (your )?(response|answer)|answer|response|write your (response|answer)( here)?)\.*$/i;
 
   /* The label text that belongs to this one control ('' when none). */
   function ownLabel(el) {

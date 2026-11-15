@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Autonomous Job Kit Autofill",
   "short_name": "Autonomous",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "description": "Fills job application forms from your Autonomous Job Kit profile. Never submits; leaves sensitive and open questions for you.",
   "minimum_chrome_version": "110",
   "permissions": [

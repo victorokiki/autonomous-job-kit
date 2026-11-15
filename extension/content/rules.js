@@ -298,6 +298,7 @@
     return best;
   }
 
+  var HEARD_RE = /\b(how|where) (did |have )?you (first )?(hear|heard|find|found|learn|learned|come across|discover)\b|\bhear(d)? about (us|this|the)\b|\b(referral|application|candidate|lead) source\b|\bsource of (application|referral|hire)\b/;
   var RESUME_RE = /\b(resume|cv|curriculum vitae)\b/;
   var COVER_RE = /\bcover letter\b|\bcoverletter\b|\bmotivation letter\b/;
 
@@ -316,7 +317,17 @@
     if (CONSENT_RE.test(label)) return { ok: false, reason: 'consent' };
 
     var saved = savedAnswerFor(label, profile);
-    if (saved) return { ok: true, rule: 'saved answer "' + saved.m + '"', want: { kind: 'text', text: saved.answer, saved: true } };
+    // "How did you hear about us?" has many wordings; they all use the user's "how did you hear" answer.
+    if (!saved && HEARD_RE.test(label)) saved = savedAnswerFor('how did you hear', profile);
+    if (saved) {
+      var sw = { kind: 'text', text: saved.answer, saved: true };
+      if (HEARD_RE.test(label) && /\b(career|company|website|web site|employer)\b/i.test(saved.answer)) {
+        // Dropdowns name the employer's own site ("Palantir Website", "Careers page", "Company website").
+        sw.matchers = [function (t) { var n = T.norm(t); return /\b(careers?|company (web ?site|site)|corporate (web ?site|site)|our (web ?site|site)|official (web ?site|site))\b/.test(n) && !/\b(fair|event|ambassador|recruiter|agency)\b/.test(n); },
+          function (t) { var n = T.norm(t); return /\bweb ?site\b/.test(n) && !/\b(job board|indeed|glassdoor|linkedin|third party)\b/.test(n); }];
+      }
+      return { ok: true, rule: 'saved answer "' + saved.m + '"', want: sw };
+    }
 
     if (q.control === 'textarea') return { ok: false, reason: 'open-ended' };
 

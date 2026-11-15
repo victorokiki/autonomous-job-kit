@@ -102,7 +102,10 @@
       }
     } else {
       (want.matchers || []).forEach(function (m) { out.push({ matcher: m }); });
-      out.push({ text: want.text, aliases: want.aliases, number: want.number, prefer: want.prefer });
+      // "English (fluent)" should still find "English (ENG)": also try the answer without its bracketed note.
+      var bare = String(want.text || '').replace(/\s*\([^)]*\)\s*/g, ' ').trim();
+      var aliases = (want.aliases || []).concat(bare && bare !== want.text ? [bare] : []);
+      out.push({ text: want.text, aliases: aliases, number: want.number, prefer: want.prefer });
     }
     return out;
   }

@@ -69,8 +69,12 @@ any time; it's saved as `automationLevel` in profile.json.
 12. **Email drafts**: follow-up after a quiet week or two, thank-you after an interview, and replies to accept, decline
    or withdraw. Drafts only: you send them.
 13. **Weekly report**: what you sent, what moved, interviews coming up, and progress toward your weekly goal.
-14. **Interview prep**: what the employer already saw from you, true stories for the likely questions (nothing
-   invented), and a quick look at the company.
+14. **Interview prep**: say "prep me for my Harbourline interview" and Claude writes `interview-prep.md` in that job's
+   folder: the role and company, exactly what they already have from you (the resume and your written answers word
+   for word), a 30-second intro, 4–6 true stories for likely questions, each project on your resume in depth, a
+   technical review with practice ideas, honest answers for your skill gaps, questions to ask them, and a day-of
+   checklist. Nothing is invented: details only you know are left as `[Fill in: ...]`. Afterwards it offers a mock
+   interview in chat and a thank-you email draft.
 15. **Memory of what you sent**: "Which resume went to Acme?" or "What did I tell them about salary?" is answered from
    the job's own records, word for word.
 

@@ -202,6 +202,25 @@ with no news ("Northwind, submitted 9 days ago: any news?") and updates them: su
 your pipeline from applied to accepted, response rate, a "needs your update" list with one-click update lines to paste
 back to Claude, your to-do list, every application, and the best new job matches.
 
+## Prepare for interviews
+
+Got an interview? Tell Claude when, how and with whom ("Interview with Harbourline on Thursday at 2pm ET, video call,
+technical round"), then say **"Prep me for my Harbourline interview"**. Claude writes `interview-prep.md` in that job's
+folder:
+
+- **The role and the company**, with links for anything it looked up.
+- **What they already have from you**: the resume that went out and your written answers, word for word, so you stay
+  consistent.
+- **A 30-second intro** and **4–6 true stories** for the likely questions (teamwork, a setback, learning fast, why
+  this employer).
+- **Every project on your resume, in depth**, plus a **technical review** with ways to practise.
+- **Honest answers for your skill gaps**, never claiming what you don't have.
+- **Questions to ask them**, and a **day-of checklist**.
+
+Nothing is invented: every story comes from your resume, profile or application record, and details only you know are
+left as `[Fill in: ...]`. Then ask for **"a mock interview"** to practise in chat, and **"draft a thank-you email"**
+afterwards.
+
 ## Your job-search folder
 
 Everything personal lives here, and you can open any of it yourself:
@@ -348,6 +367,7 @@ in the Claude app. Remove the extension from `chrome://extensions`. Your job-sea
 - **Scam and red-flag warnings** on postings (pay-to-apply, chat-only contact, crypto, suspicious pay).
 - **Immigration-route checks**: NOC/TEER for Canada's CEC and PNPs, the UK register of licensed sponsors for Skilled
   Worker, sponsorship wording and salary floors for the US and UK (checks, never advice).
+- **Interview prep** from what you actually sent, with true stories, questions to ask and a mock interview.
 - **Tracker check-ins**, a **clean dashboard**, a **weekly progress report**, and **follow-up and thank-you email
   drafts**.
 - **Templates and a fictional example**, `CAPABILITIES.md`, Mac and Windows installers, Cowork zips, and

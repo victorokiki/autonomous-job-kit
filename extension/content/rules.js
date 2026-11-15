@@ -277,7 +277,7 @@
     { id: 'transgender', re: /\btransgender\b|\btrans\b|\bgender identity\b.*\b(same|different|differ)\b|\bassigned at birth\b/, get: function (p) { return choice('transgender', p.transgender); } },
     { id: 'sexual orientation', re: /\bsexual orientation\b|\borientation\b/, get: function (p) { return choice('sexualOrientation', p.sexualOrientation); } },
     { id: 'LGBTQ+', re: /\blgbt|\b2slgbt|\bqueer community\b/, get: function (p) { return choice('lgbtq', p.lgbtq); } },
-    { id: 'pronouns', re: /\bpronoun/, get: function (p) { return choice('pronouns', p.pronouns); } },
+    { id: 'pronouns', re: /\bpronouns?\b/, get: function (p) { return choice('pronouns', p.pronouns); } },
     { id: 'gender', re: /\bgender\b|\bsex\b/, get: function (p) { return choice('gender', p.gender); } },
     { id: 'Hispanic or Latino', re: /\bhispanic\b|\blatin[oaxe]\b|\blatinx\b/, get: function (p) { return choice('hispanicLatino', p.hispanicLatino); } },
     { id: 'race / ethnicity', re: /\brace\b|\bethnic\w*\b|\bracial\b/, get: function (p) { return choice('race', p.race); } },

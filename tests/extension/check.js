@@ -219,7 +219,9 @@ const CASES = [
   ["Driver's licence number", 'text', 'left:sensitive'],
   ['Do you have relatives who are government officials?', 'radio', 'government relative'],
   ['Please tell us how you heard about this opportunity.', 'select', 'saved answer "how did you hear"'],
-  ['Where did you first learn about this role?', 'select', 'saved answer "how did you hear"']
+  ['Where did you first learn about this role?', 'select', 'saved answer "how did you hear"'],
+  ['Name Pronunciation | How do you pronounce your name?', 'text', 'left:unknown question'],
+  ['Pronouns', 'select', 'left:not in profile']
 ];
 CASES.forEach(([text, control, want, extra]) => {
   const d = R.decide(q(text, control, extra), profile, {});

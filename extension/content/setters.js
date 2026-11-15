@@ -119,11 +119,73 @@
     return -1;
   }
 
+  /* ---- typed-in suggestion boxes (Lever's location, place pickers) ---- */
+  var SUGGEST_BOX = /(dropdown|suggest|autocomplete|typeahead|pac-container|results)/i;
+  var SUGGEST_ITEM = /(option|item|result|suggest|location|place|pac-item|choice)/i;
+  var NOT_ITEM = /(no-?results|loading|empty|hint|container|-results$|results\b(?!.*location))/i;
+
+  // The box around a text input that holds its suggestion list, or null for an ordinary text field.
+  function suggestBox(el) {
+    if (el.getAttribute('aria-autocomplete') === 'list' || el.getAttribute('aria-autocomplete') === 'both') return el.parentElement;
+    for (var up = el.parentElement, n = 0; up && n < 2; up = up.parentElement, n++) {
+      var kids = up.querySelectorAll('[class]');
+      for (var i = 0; i < kids.length; i++) {
+        if (kids[i] !== el && !kids[i].contains(el) && SUGGEST_BOX.test(String(kids[i].className))) return up;
+      }
+    }
+    return null;
+  }
+
+  function suggestionNodes(box, el) {
+    var all = Array.prototype.slice.call(box.querySelectorAll('[class], [role="option"], li'));
+    var c = all.filter(function (n) {
+      if (n === el || n.contains(el) || n.tagName === 'INPUT' || !JK.labels.visible(n)) return false;
+      var cls = String(n.className || ''), t = (n.textContent || '').trim();
+      if (!t || t.length > 120) return false;
+      if (n.getAttribute('role') === 'option' || n.tagName === 'LI') return !NOT_ITEM.test(cls);
+      return SUGGEST_ITEM.test(cls) && !NOT_ITEM.test(cls);
+    });
+    return c.filter(function (n) { return !c.some(function (o) { return o !== n && n.contains(o); }); });
+  }
+
+  async function applySuggested(f, want, v, box) {
+    var el = f.el;
+    try { el.focus({ preventScroll: true }); } catch (e) { /* ignore */ }
+    var set = nativeSetter(el, 'value');
+    if (set) set.call(el, v); else el.value = v;
+    fire(el, 'input');
+    el.dispatchEvent(new KeyboardEvent('keyup', { key: v.slice(-1), bubbles: true }));
+    var end = Date.now() + 2500, nodes = [];
+    while (Date.now() < end) {
+      await sleep(120);
+      nodes = suggestionNodes(box, el);
+      if (nodes.length) { await sleep(150); nodes = suggestionNodes(box, el); break; }
+    }
+    if (!nodes.length) {
+      fire(el, 'change'); try { el.blur(); } catch (e2) { /* ignore */ }
+      await sleep(250);
+      return { ok: String(el.value).trim() !== '', value: v, reason: 'no suggestion matched' };
+    }
+    var opts = asOptions(nodes);
+    var idx = pick(opts, want, f);
+    if (idx === -1) idx = T.pickOption(opts, { text: v.split(',')[0] });
+    if (idx === -1) {
+      if (set) set.call(el, ''); else el.value = '';
+      fire(el, 'input'); closeMenu(el);
+      return { ok: false, reason: 'no suggestion matched' };
+    }
+    pointerClick(opts[idx].el);
+    await sleep(250);
+    return { ok: String(el.value).trim() !== '', value: opts[idx].text };
+  }
+
   /* ---- per-kind setters ---- */
   function applyText(f, want) {
     var v = displayText(want, f);
     if (!v) return { ok: false, reason: 'format' };
     if (f.el.maxLength > 0 && v.length > f.el.maxLength) return { ok: false, reason: 'too long' };
+    var box = f.kind === 'text' ? suggestBox(f.el) : null;
+    if (box) return applySuggested(f, want, v, box);
     setValue(f.el, v);
     return { ok: String(f.el.value) === v || String(f.el.value).trim() !== '', value: v };
   }

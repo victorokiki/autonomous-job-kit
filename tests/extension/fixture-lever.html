@@ -24,7 +24,13 @@
     <li class="application-question"><label><div class="application-label">Phone</div>
       <input type="text" name="phone" data-expect="+1 (902) 555-0142"></label></li>
     <li class="application-question"><label><div class="application-label">Current location</div>
-      <input type="text" name="location" data-expect="Halifax, NS"></label></li>
+      <div class="application-field"><input class="location-input" id="location-input" type="text" name="location" data-expect="Halifax, NS, CAN" data-name="location autocomplete">
+      <input id="selected-location" type="hidden" name="selectedLocation" value="">
+      <div class="dropdown-container" style="display:none"><div class="dropdown-results"></div>
+        <div class="dropdown-no-results" style="display:none">No location found. Try entering a different location</div>
+        <div class="dropdown-loading-results" style="display:none">Loading</div></div></div></label></li>
+    <li class="application-question"><label><div class="application-label">Name Pronunciation | How do you pronounce your name?</div>
+      <input type="text" name="cards[a][pron]" data-expect="" data-name="pronunciation left"></label></li>
     <li class="application-question"><label><div class="application-label">Current company</div>
       <input type="text" name="org" data-expect="Harbourline Logistics"></label></li>
   </ul>
@@ -67,6 +73,31 @@
   <button type="submit">Submit application</button>
 </form>
 <pre id="jk-results">running…</pre>
+<script>
+/* Lever-like location autocomplete: suggestions after typing; the value is cleared on blur unless one was picked. */
+(function () {
+  var input = document.getElementById('location-input'), hidden = document.getElementById('selected-location');
+  var box = input.parentElement.querySelector('.dropdown-container'), list = box.querySelector('.dropdown-results');
+  var CITIES = ['Halifax, NS, CAN', 'Halifax, VA, USA', 'Halifax, PA, USA', 'Toronto, ON, CAN'];
+  var picked = false;
+  input.addEventListener('input', function () {
+    picked = false; hidden.value = '';
+    var q = input.value.trim().toLowerCase().split(',')[0];
+    list.innerHTML = '';
+    box.style.display = 'none';
+    setTimeout(function () {
+      CITIES.filter(function (c) { return q && c.toLowerCase().indexOf(q) === 0; }).forEach(function (c) {
+        var d = document.createElement('div'); d.className = 'dropdown-location'; d.textContent = c;
+        d.addEventListener('mousedown', function (e) { e.preventDefault(); });
+        d.addEventListener('click', function () { input.value = c; hidden.value = JSON.stringify({ name: c }); picked = true; box.style.display = 'none'; });
+        list.appendChild(d);
+      });
+      box.style.display = list.children.length ? 'block' : 'none';
+    }, 250);
+  });
+  input.addEventListener('blur', function () { setTimeout(function () { if (!picked) input.value = ''; box.style.display = 'none'; }, 150); });
+})();
+</script>
 <script src="harness.js"></script>
 </body>
 </html>

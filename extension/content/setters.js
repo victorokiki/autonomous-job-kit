@@ -154,8 +154,12 @@
     var set = nativeSetter(el, 'value');
     if (set) set.call(el, v); else el.value = v;
     fire(el, 'input');
-    el.dispatchEvent(new KeyboardEvent('keyup', { key: v.slice(-1), bubbles: true }));
-    var end = Date.now() + 2500, nodes = [];
+    // Some boxes (Lever) only search on a key press that carries a keyCode.
+    var ch = v.slice(-1), code = ch.toUpperCase().charCodeAt(0);
+    el.dispatchEvent(new KeyboardEvent('keydown', { key: ch, keyCode: code, which: code, bubbles: true }));
+    el.dispatchEvent(new KeyboardEvent('keypress', { key: ch, keyCode: ch.charCodeAt(0), charCode: ch.charCodeAt(0), which: ch.charCodeAt(0), bubbles: true }));
+    el.dispatchEvent(new KeyboardEvent('keyup', { key: ch, keyCode: code, which: code, bubbles: true }));
+    var end = Date.now() + 3000, nodes = [];
     while (Date.now() < end) {
       await sleep(120);
       nodes = suggestionNodes(box, el);

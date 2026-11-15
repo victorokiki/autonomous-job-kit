@@ -80,7 +80,9 @@
   var box = input.parentElement.querySelector('.dropdown-container'), list = box.querySelector('.dropdown-results');
   var CITIES = ['Halifax, NS, CAN', 'Halifax, VA, USA', 'Halifax, PA, USA', 'Toronto, ON, CAN'];
   var picked = false;
-  input.addEventListener('input', function () {
+  input.addEventListener('input', function () { picked = false; hidden.value = ''; });
+  input.addEventListener('keydown', function (e) {
+    if (!e.keyCode) return;   /* like Lever: only key presses with a keyCode search */
     picked = false; hidden.value = '';
     var q = input.value.trim().toLowerCase().split(',')[0];
     list.innerHTML = '';

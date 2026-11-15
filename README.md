@@ -12,6 +12,18 @@ UK Skilled Worker, H-1B and more).
 
 Created and maintained by [victorokiki](https://github.com/victorokiki).
 
+## Quick start
+
+1. **Get a paid Claude plan** (Pro or higher) and install the [Claude desktop app](https://claude.com/download) or
+   [Claude Code](https://code.claude.com).
+2. **Download this kit** (Code → Download ZIP) and run the installer: `install.sh` on Mac/Linux, `install.cmd` on
+   Windows ([details](#install)).
+3. **Make a job-search folder** (for example `Documents/job-search`), put your current CV in it, and open Claude there.
+4. **Say "Set me up".** Claude builds your master CV and profile and asks how much you want it to automate.
+5. **Paste a job link.** You get a tailored CV, a cover letter and the application ready for you to review.
+
+Then see [Things you can say](#things-you-can-say) for everyday use.
+
 ## All you do: paste a job link
 
 > https://jobs.example.com/data-analyst-12345
@@ -94,15 +106,6 @@ powershell -ExecutionPolicy Bypass -File .\install.ps1
 ready-to-upload zips in `dist/`; upload each in **Customize → Skills**
 ([help](https://support.claude.com/en/articles/12512180-use-skills-in-claude)).
 
-### Add the Autonomous Job Kit Autofill extension (optional; needed for the lean level)
-
-1. Open `chrome://extensions` (Edge: `edge://extensions`) and turn on **Developer mode** (top right).
-2. Click **Load unpacked** and choose the kit's `extension` folder.
-3. Pin it from the puzzle-piece menu, open its profile page and click **Import profile.json** once setup has made your
-   profile (or fill the page in by hand).
-
-On application sites a **Fill with Autonomous** button appears on the right edge. See [extension/README.md](extension/README.md).
-
 ### 3. Install the helpers
 
 Python packages (all systems; on Windows, install Python from python.org first and tick **Add python.exe to PATH**):
@@ -159,6 +162,38 @@ Then:
 job, every form filled, and a stop before Submit. Add "fill all" to let it tick consent boxes too, or "and submit" to submit
 (only when you mean it).
 
+## Add the Autofill extension (after setup)
+
+Optional for the assisted and full levels, needed for the lean level. Do this after "Set me up", because it imports the
+`profile.json` that setup creates.
+
+1. Open `chrome://extensions` (Edge: `edge://extensions`) and turn on **Developer mode** (top right).
+2. Click **Load unpacked** and choose the kit's `extension` folder.
+3. Pin it from the puzzle-piece menu. Right-click its icon → **Options**, click **Import profile.json** and choose the
+   one in your job-search folder (or fill the page in by hand).
+
+On application sites a **Fill with Autonomous** button appears on the right edge (or press **Alt+Shift+F**). It fills
+the standard fields, outlines what it filled in green and what it left in amber, and never submits. Chrome may show a
+"developer mode extensions" notice; that's normal for extensions loaded this way. See
+[extension/README.md](extension/README.md).
+
+## Things you can say
+
+Talk to Claude in plain words from your job-search folder. Some examples:
+
+| You want to | Say |
+|---|---|
+| Apply to one job | *paste the job link* |
+| Find jobs | "Find jobs that fit me" · "Add Shopify's job board" · "Show me today's digest" |
+| Apply to several | "Apply to 6 jobs" · "Apply to the top 3 and fill all" |
+| Check a job before applying | "Is this a good fit?" · "Does this job work for my CEC / Skilled Worker route?" · "Is this posting legit?" |
+| Report news | "I submitted Northwind" · "I got an interview with Harbourline on Thursday" · "Rejected by Acme" · "I got the offer!" |
+| See where things stand | "Show my dashboard" · "Where do things stand?" · "What should I do this week?" · "Weekly report" |
+| Prepare and follow up | "Prep me for my Harbourline interview" · "Draft a follow-up for Northwind" · "Draft a thank-you email" |
+| Check what you sent | "Which resume went to Acme?" · "What did I tell them about salary?" |
+| Change settings | "Switch me to lean mode" · "Allow two-page resumes" · "Never use the word passionate" · "Stop writing cover letters" |
+| Get help | "What can this do?" · "Set me up" (again, to redo setup) |
+
 ## Track your applications
 
 Every application lands in `tracker.xlsx`. At the start of each job-search conversation Claude asks about the ones
@@ -166,6 +201,27 @@ with no news ("Northwind, submitted 9 days ago: any news?") and updates them: su
 (and which stage), offer, accepted, declined, rejected or withdrawn. Ask **"show my dashboard"** for a one-page view:
 your pipeline from applied to accepted, response rate, a "needs your update" list with one-click update lines to paste
 back to Claude, your to-do list, every application, and the best new job matches.
+
+## Your job-search folder
+
+Everything personal lives here, and you can open any of it yourself:
+
+```
+job-search/
+  resume/            your master CV (the only source of facts) and master-notes.md
+  style-guide/       style-guide.md: how your CVs and letters should look
+  profile.json       your standard answers, automation level and preferences
+  search.json        country, region, job tracks, employers, immigration route
+  jobs.txt           the queue: one job link per line; finished ones move below "# done"
+  Applications/      one folder per job: tailored resume and letter PDFs, application-record.md (what was entered),
+                     changes.md (what was tailored), answers-to-paste.md (lean level)
+  tracker.xlsx       one row per application, with status and next step
+  dashboard.html     your one-page overview (open it in any browser)
+  digests/           daily lists of new matches
+  reports/           weekly progress reports
+```
+
+Nothing in it is ever deleted: replaced files move into an `_old/` folder next to them.
 
 ## Your country, profession and immigration route
 
@@ -228,6 +284,16 @@ Scripts Claude runs for you:
 | `email_drafts.py` (tracker) | Drafts follow-up, thank-you and offer-reply emails from your tracker. Drafts only: you send them. |
 | `weekly_report.py` (tracker) | A weekly progress report: what you sent, what moved, what's next. |
 | `dashboard.py` (tracker) | Writes `dashboard.html`. |
+
+## Update or uninstall
+
+**Update:** download the new ZIP (or run `git pull` in the kit's folder), then run the installer again. Your old copies
+move to `.claude/skills-backup`, and your job-search folder isn't touched. For the extension, click reload ↻ on its
+card in `chrome://extensions`. Cowork: run `make_zips.py` again and re-upload the three zips.
+
+**Uninstall:** delete the `internship-application`, `internship-tracker` and `job-kit-setup` folders from
+`~/.claude/skills` (Windows: `%USERPROFILE%\.claude\skills`), or remove the three skills under **Customize → Skills**
+in the Claude app. Remove the extension from `chrome://extensions`. Your job-search folder stays yours to keep or delete.
 
 ## Troubleshooting
 

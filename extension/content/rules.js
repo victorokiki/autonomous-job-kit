@@ -164,6 +164,7 @@
       not: /\b(e ?mail|line 2|address 2|web|url|ip|city|postal|zip)\b/, get: function (p) { return text(p.street); } },
     { id: 'city', self: true, hint: true, re: /\b(city|town|municipality|locality)\b/, not: /\b(birth|state|province)\b|city and|city state/, get: function (p) { return text(p.city, { prefer: placeWords(p) }); } },
     { id: 'location', self: true, re: /^(current )?location( city)?$|\b(current|home) location\b|where are you (currently )?(located|based)|\bcity (and|,)? ?(state|province)\b|\bcity state\b|^location city$/,
+      not: /\bsponsor\w*|\bvisa\b|\bwork permit\b|\bauthori[sz]\w*|\brelocat\w*|\bremain in\b/,
       get: function (p) { return text([s(p.city), s(p.state)].filter(Boolean).join(', '), { typeText: s(p.city), prefer: placeWords(p) }); } },
     { id: 'province / state', self: true, hint: true, re: /\b(state|province|region|prefecture|county|territory)\b/, not: /united states|\bstatement\b|please state|state your|state why|state the|state of birth|\bstatus\b/,
       get: function (p) { return text(p.state, { aliases: T.regionAliases(p.state) }); } },

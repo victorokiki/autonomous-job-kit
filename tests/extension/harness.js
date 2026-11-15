@@ -101,6 +101,7 @@
       var rep = document.getElementById('jobkit-report');
       var text = rep ? rep.textContent : '';
       check('report starts with "Autonomous report:"', /^Autonomous report: filled \d+/.test(text), text.slice(0, 80));
+      check('hidden dropdown helper inputs are not listed', !/unlabelled/.test(text), text.slice(0, 200));
       check('report ends with profile freshness', /Profile: imported 2026-11-01, 2 saved answers\.$/.test(text), text.slice(-60));
       check('report is first in the form', rep && rep.parentNode && rep.parentNode.firstChild === rep, '');
       (window.JK_EXTRA_CHECKS || []).forEach(function (fn) { var r = fn(first, text); check(r[0], r[1], r[2]); });

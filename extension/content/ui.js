@@ -85,7 +85,7 @@
     if (button && button.isConnected) return;
     var w = wrapNode();
     button = el('button', { type: 'button', 'class': 'btn-fill', title: 'Fill this form from your Autonomous Job Kit profile (Alt+Shift+F). Nothing is submitted.' });
-    button.appendChild(el('span', { 'class': 'mark', 'aria-hidden': 'true' }, 'JK'));
+    button.appendChild(el('span', { 'class': 'mark', 'aria-hidden': 'true' }, 'A'));
     button.appendChild(el('span', null, 'Fill with Autonomous'));
     button.addEventListener('click', function (e) {
       if (!e.isTrusted) return; // page scripts cannot start a fill

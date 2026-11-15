@@ -202,7 +202,9 @@ const CASES = [
   ['From', 'text', 'education start', { context: 'education' }],
   ['Are you willing to relocate?', 'radio', 'relocation', { context: 'education' }],
   ['Earliest start date', 'text', 'available from', { context: 'education and availability' }],
-  ['Will you require sponsorship for this co-op work term?', 'radio', 'sponsorship']
+  ['Will you require sponsorship for this co-op work term?', 'radio', 'sponsorship'],
+  ['Will you now or in the future require sponsorship for a visa to remain in your current location?', 'combobox', 'sponsorship'],
+  ['Current location', 'combobox', 'location']
 ];
 CASES.forEach(([text, control, want, extra]) => {
   const d = R.decide(q(text, control, extra), profile, {});

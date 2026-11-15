@@ -1,4 +1,4 @@
-"""Generate the Autonomous Job Kit Autofill toolbar icons (a white "JK" on a blue rounded square).
+"""Generate the Autonomous Job Kit Autofill toolbar icons (a white "A" on a blue rounded square).
 
 Usage:  python3 tests/extension/make_icons.py
 Writes extension/icons/icon16.png, icon32.png, icon48.png and icon128.png using only the
@@ -16,9 +16,7 @@ WHITE = (255, 255, 255)
 STROKE = 0.115  # letter stroke width, as a fraction of the icon size
 
 # Letter strokes as line segments in a 0..1 box: (x1, y1, x2, y2)
-J = [(0.43, 0.27, 0.43, 0.60), (0.29, 0.27, 0.47, 0.27)]
-J_ARC = (0.32, 0.60, 0.11)  # centre x, centre y, radius of the J hook (lower half circle)
-K = [(0.57, 0.27, 0.57, 0.73), (0.59, 0.53, 0.77, 0.27), (0.63, 0.47, 0.79, 0.73)]
+A = [(0.30, 0.74, 0.50, 0.26), (0.50, 0.26, 0.70, 0.74), (0.385, 0.57, 0.615, 0.57)]
 
 
 def seg_dist(px, py, x1, y1, x2, y2):
@@ -35,13 +33,7 @@ def in_rounded_square(x, y, r=0.22):
 
 def in_letters(x, y):
     h = STROKE / 2
-    for s in J + K:
-        if seg_dist(x, y, *s) <= h:
-            return True
-    cx, cy, r = J_ARC
-    if y >= cy and abs(math.hypot(x - cx, y - cy) - r) <= h:
-        return True
-    return False
+    return any(seg_dist(x, y, *s) <= h for s in A)
 
 
 def render(size):

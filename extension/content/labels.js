@@ -233,6 +233,10 @@
       var type = (el.getAttribute('type') || (tag === 'INPUT' ? 'text' : '')).toLowerCase();
       if (tag === 'INPUT' && SKIP_TYPES.test(type)) return;
       if (tag === 'INPUT' && el.readOnly && el.getAttribute('role') !== 'combobox') return;
+      // Helper inputs that custom dropdowns hide from people (react-select's "required" stand-in: aria-hidden,
+      // out of the tab order). The real control next to them is what gets filled.
+      if (tag === 'INPUT' && !/^(file|radio|checkbox)$/.test(type) && el.getAttribute('aria-hidden') === 'true' &&
+          el.tabIndex < 0) return;
 
       if (tag === 'INPUT' && (type === 'radio' || type === 'checkbox')) {
         var labelVisible = el.labels && el.labels.length && visible(el.labels[0]);
@@ -311,9 +315,15 @@
       case 'file': return !!(el.files && el.files.length);
       case 'combobox': {
         if (String(el.value || '').trim()) return true;
-        var box = el.closest('[class*="container"], [class*="select"], [role="group"]') || el.parentElement;
-        var sv = box && box.querySelector('[class*="single-value"], [class*="singleValue"], [class*="multi-value"], [class*="multiValue"], [data-selected-value]');
-        return !!(sv && collapse(sv.textContent));
+        // The chosen value sits beside the input (react-select: input-container -> value-container -> control),
+        // so look in the surrounding boxes, a few levels up, stopping at the field's own wrapper.
+        var SV = '[class*="single-value"], [class*="singleValue"], [class*="multi-value"], [class*="multiValue"], [data-selected-value]';
+        for (var up = el.parentElement, n = 0; up && n < 4; up = up.parentElement, n++) {
+          var sv = up.querySelector(SV);
+          if (sv && collapse(sv.textContent)) return true;
+          if (up.querySelectorAll('input[role="combobox"]').length > 1) break;
+        }
+        return false;
       }
       case 'listbox': {
         var t = T.norm(textOf(el));

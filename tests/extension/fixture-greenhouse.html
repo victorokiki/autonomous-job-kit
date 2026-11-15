@@ -54,8 +54,9 @@
   <h2>Questions</h2>
   <div class="field"><label id="auth-label" for="auth">Are you legally authorized to work in Canada? *</label>
     <div class="rs" data-options="Yes|No">
-      <div class="rs-control"><div class="rs-single-value" data-expect="Yes" data-name="work authorization combobox"></div>
-        <input id="auth" role="combobox" aria-labelledby="auth-label" aria-controls="auth-list" aria-expanded="false"></div>
+      <div class="rs-control select__control"><div class="select__value-container"><div class="rs-single-value" data-expect="Yes" data-name="work authorization combobox"></div>
+        <div class="select__input-container"><input id="auth" class="select__input" role="combobox" aria-labelledby="auth-label" aria-controls="auth-list" aria-expanded="false"></div></div>
+        <input class="requiredInput" aria-hidden="true" tabindex="-1" required style="opacity:0;position:absolute;width:100%" value=""></div>
       <div role="listbox" id="auth-list" hidden></div></div></div>
   <div class="field"><label for="us_auth">Are you legally authorized to work in the United States?</label>
     <select id="us_auth" data-expect="Select..." data-name="US authorization left (different country)"><option value="">Select...</option><option>Yes</option><option>No</option></select></div>

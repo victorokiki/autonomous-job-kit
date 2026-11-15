@@ -1,6 +1,10 @@
-# What this kit can do
+# What Autonomous Job Kit can do
 
 A plain-words guide for people using the kit, and for Claude to answer "what can you do?" and "how do I change X?".
+
+New here? Install it with the [Quick start](README.md#quick-start), open Claude in your job-search folder and say
+**"Set me up"**. Claude finds your CVs, builds your master CV, asks only what your CV
+can't answer, and helps you choose how much it automates.
 
 ## In one paragraph
 
@@ -35,7 +39,7 @@ any time; it's saved as `automationLevel` in profile.json.
 | `job-kit-setup` skill | First-time setup: finds your CVs, builds one master, creates your profile, captures your CV style, sets up your search. | "Set me up", "Get started" |
 | `internship-application` skill | Finds and ranks jobs, tailors resumes and letters, fills forms, records what was entered. | "Find jobs that fit me", "Apply to 6 jobs", "What's new today?" |
 | `internship-tracker` skill | Tracker spreadsheet, check-ins asking how each application is going, follow-up and thank-you email drafts, interview prep, weekly report, dashboard. | "Show my dashboard", "Check in", "Draft a follow-up to Northwind", "Weekly report", "I got an interview at X" |
-| `extension` (Autonomous Job Kit Autofill, optional) | Fills the predictable form fields instantly from your saved profile, without using Claude. | (click its Fill button, or let Claude press it) |
+| `extension` (Autonomous Job Kit Autofill, optional) | Fills the predictable form fields instantly from your saved profile, without using Claude. Green outline = filled, amber = left for you. | Click **Fill with Autonomous** on the page or press Alt+Shift+F (or let Claude press it) |
 
 ## What it does, step by step
 
@@ -51,7 +55,8 @@ any time; it's saved as `automationLevel` in profile.json.
 5. **Writes a cover letter** when the posting wants one (or always, if you prefer), and can merge it with the resume
    into one PDF for forms with a single upload box.
 6. **Fills the form** in Chrome (Claude in Chrome), attaches the files, answers from your profile and saved answers,
-   and stops on the last page before Submit.
+   and stops on the last page before Submit. At the lean level it writes `answers-to-paste.md` instead, so you fill
+   the form yourself with the extension.
 7. **Records** every field and answer it entered (`application-record.md`), what it changed in the resume
    (`changes.md`), and a tracker row.
 8. **Daily digest**: what's new since yesterday, best first.
@@ -64,6 +69,23 @@ any time; it's saved as `automationLevel` in profile.json.
 12. **Email drafts**: follow-up after a quiet week or two, thank-you after an interview, and replies to accept, decline
    or withdraw. Drafts only: you send them.
 13. **Weekly report**: what you sent, what moved, interviews coming up, and progress toward your weekly goal.
+14. **Interview prep**: what the employer already saw from you, true stories for the likely questions (nothing
+   invented), and a quick look at the company.
+15. **Memory of what you sent**: "Which resume went to Acme?" or "What did I tell them about salary?" is answered from
+   the job's own records, word for word.
+
+## Things you can say
+
+| You want to | Say |
+|---|---|
+| Apply to one job | *paste the job link* |
+| Find jobs | "Find jobs that fit me" · "What's new today?" · "Add Shopify's job board" |
+| Apply to several | "Apply to 6 jobs" · "Apply to the top 3 and fill all" |
+| Check a job first | "Is this a good fit?" · "Does this work for my CEC route?" · "Is this posting legit?" |
+| Report news | "I submitted Northwind" · "Interview with Harbourline on Thursday" · "Rejected by Acme" · "I got the offer!" |
+| See where things stand | "Show my dashboard" · "Where do things stand?" · "What should I do this week?" · "Weekly report" |
+| Prepare and follow up | "Prep me for my Harbourline interview" · "Draft a follow-up for Northwind" · "Draft a thank-you email" |
+| Change settings | "Switch me to lean mode" · "Allow two-page resumes" · "Stop writing cover letters unless required" |
 
 ## What it never does
 
@@ -96,6 +118,10 @@ Everything personal lives in **your own job-search folder** (never inside this r
 | `search.json` | What and where to search: country (Canada, US, UK), province/state/region, home area, job tracks with priorities, words to exclude, Job Bank searches, employers to follow, extra skills, and your immigration route (`pathway`). | `templates/search.example.json`, `search.uk.example.json`, `search.us.example.json` |
 | `jobs.txt` | Your queue of posting links, one per line. Links below `# done` are finished. | |
 
+The kit also keeps, in the same folder: `Applications/` (one folder per job with its resume, letter and records),
+`tracker.xlsx`, `dashboard.html`, `digests/` and `reports/`. Open any of them yourself. Nothing is deleted: replaced
+files move into an `_old/` folder beside them.
+
 Common changes, just ask Claude:
 
 - "Add Shopify's job board" → `find_jobs.py --add-employer <link>`.
@@ -124,3 +150,8 @@ Common changes, just ask Claude:
 - Job search scripts: **Canada, the United States and the United Kingdom**.
 - Application systems: Greenhouse, Lever, Ashby, Workday, SmartRecruiters, iCIMS and most company career sites.
 - Resumes: Overleaf/LaTeX (best: Claude builds and checks the PDF itself with Tectonic) or Word.
+
+## Updating
+
+Download the new version (or `git pull`) and run the installer again; your job-search folder isn't touched. Reload the
+extension in `chrome://extensions`. Details and uninstall steps: [README](README.md#update-or-uninstall).
